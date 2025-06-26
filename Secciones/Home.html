@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Eco Smart Construcciones</title>
+        <link rel="stylesheet" href="../Elementos/css/Home.css">
+        <link rel="stylesheet" href="../Elementos/css/General.css">
+        <link rel="shortcut icon" href="../Img/Logo_Color_Fondo_Negro_500x500.png" type="image/x-icon">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+    </head>
+    <body>
+        <!-- Menú horizontal para desktop -->
+        <nav class="menu-desktop">
+            <div class="nav-container">
+                <div class="logo-nav">
+                    <img src="../Img/Logo_Color_Fondo_Blanco_400x150.png" alt="Eco Smart Construcciones" class="logo-imagen">
+                </div>
+                <ul class="menu-horizontal">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#productos">Productos</a></li>
+                    <li><a href="#impacto">Impacto Ambiental</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+                <button class="btn-postulate-desktop">Postúlate</button>
+            </div>
+        </nav>
+
+        <!-- Barra de navegación móvil -->
+        <nav class="menu-movil">
+            <div class="nav-movil-container">
+                <div class="logo-movil">
+                    <img src="../Img/Logo_Color_Fondo_Blanco_400x150.png" alt="Eco Smart Construcciones" class="logo-imagen-movil">
+                </div>
+                <div class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Menú lateral desplegable para móviles -->
+        <nav class="menu-lateral" id="menuLateral">
+            <div class="menu-contenido">
+                <div class="logo-menu">
+                    <img src="../Img/Logo_Color_Fondo_Negro_500x500.png" alt="Eco Smart Construcciones" class="logo-imagen-lateral">
+                </div>
+                <ul class="menu-lista">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#productos">Productos</a></li>
+                    <li><a href="#impacto">Impacto Ambiental</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+                <button class="btn-postulate">Postúlate</button>
+            </div>
+        </nav>
+
+        <!-- Overlay para cerrar el menú móvil -->
+        <div class="menu-overlay" id="menuOverlay"></div>
+
+        <!-- Carrusel Principal -->
+        <section class="carrusel-principal" id="inicio">
+            <div class="carrusel-contenedor">
+                <div class="carrusel-wrapper">
+                    <div class="carrusel-slides">
+                        <!-- Slide 1 - Video -->
+                        <div class="slide activo">
+                            <video class="slide-video" autoplay muted loop>
+                                <source src="../Img/Video_Principal.mp4" type="video/mp4">
+                                Tu navegador no soporta el elemento de video.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Flechas de navegación -->
+                <button class="carrusel-btn carrusel-prev" id="carruselPrev">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M15 18L9 12L15 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <button class="carrusel-btn carrusel-next" id="carruselNext">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M9 18L15 12L9 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                
+                <!-- Indicadores -->
+                <div class="carrusel-indicadores">
+                    <button class="indicador activo" data-slide="0"></button>
+                </div>
+            </div>
+        </section>
+
+        <script src="../Elementos/Js/menu.js"></script>
+    </body>
+</html>
