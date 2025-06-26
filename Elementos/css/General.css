@@ -1,0 +1,524 @@
+/*Estilos principales*/
+
+/* Variables de colores basadas en la marca ECO SMART */
+:root {
+    --verde-principal: #7CB342;
+    --verde-oscuro: #558B2F;
+    --amarillo-eco: #FFC107;
+    --naranja-acento: #FF9800;
+    --gris-claro: #F5F5F5;
+    --gris-medio: #9E9E9E;
+    --gris-oscuro: #424242;
+    --negro: #212121;
+    --blanco: #FFFFFF;
+}
+
+/* Reset y configuración global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--negro);
+    background-color: var(--gris-claro);
+    overflow-x: hidden;
+}
+
+/* Utilities */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.texto-verde {
+    color: var(--verde-principal);
+}
+
+.texto-amarillo {
+    color: var(--amarillo-eco);
+}
+
+.texto-naranja {
+    color: var(--naranja-acento);
+}
+
+/* Animaciones globales */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.slide-in-left {
+    animation: slideInLeft 0.6s ease forwards;
+}
+
+/* Botones generales */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, var(--verde-principal), var(--verde-oscuro));
+    color: var(--blanco);
+}
+
+.btn-secondary {
+    background: linear-gradient(45deg, var(--amarillo-eco), var(--naranja-acento));
+    color: var(--negro);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Secciones */
+.seccion {
+    padding: 80px 0;
+}
+
+.seccion h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: var(--verde-principal);
+    text-align: center;
+}
+
+.seccion p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: var(--gris-oscuro);
+}
+
+/* Cards */
+.card {
+    background: var(--blanco);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    margin-bottom: 30px;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Menú horizontal para desktop */
+.menu-desktop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(90deg, var(--negro) 0%, var(--gris-oscuro) 100%);
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: block;
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+}
+
+.logo-nav {
+    display: flex;
+    align-items: center;
+}
+
+.logo-imagen {
+    height: 70px;
+    width: auto;
+    max-width: 300px;
+    object-fit: contain;
+    margin: 0;
+}
+
+.menu-horizontal {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 35px;
+    align-items: center;
+}
+
+.menu-horizontal a {
+    color: var(--blanco);
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 600;
+    padding: 12px 18px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+    white-space: nowrap;
+}
+
+.menu-horizontal a::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--amarillo-eco);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.menu-horizontal a:hover {
+    color: var(--amarillo-eco);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.menu-horizontal a:hover::after {
+    width: 80%;
+}
+
+.btn-postulate-desktop {
+    background: linear-gradient(45deg, var(--amarillo-eco), var(--naranja-acento));
+    color: var(--negro);
+    border: none;
+    padding: 14px 30px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 12px rgba(255, 193, 7, 0.4);
+    margin-left: 20px;
+}
+
+.btn-postulate-desktop:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 193, 7, 0.4);
+    background: linear-gradient(45deg, var(--naranja-acento), var(--amarillo-eco));
+}
+
+/* Barra de navegación móvil */
+.menu-movil {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(90deg, var(--negro) 0%, var(--gris-oscuro) 100%);
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+.nav-movil-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.logo-movil {
+    display: flex;
+    align-items: center;
+}
+
+.logo-imagen-movil {
+    height: 40px;
+    width: auto;
+    max-width: 150px;
+    object-fit: contain;
+}
+
+/* Botón hamburguesa */
+.menu-toggle {
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease;
+}
+
+.menu-toggle span {
+    display: block;
+    height: 4px;
+    width: 100%;
+    background-color: var(--amarillo-eco);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle:hover span {
+    background-color: var(--naranja-acento);
+}
+
+/* Animación del botón cuando el menú está abierto */
+.menu-toggle.activo span:nth-child(1) {
+    transform: rotate(45deg) translate(9px, 9px);
+}
+
+.menu-toggle.activo span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.activo span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Menú lateral */
+.menu-lateral {
+    position: fixed;
+    top: 0;
+    left: -350px;
+    width: 350px;
+    height: 100vh;
+    background: linear-gradient(180deg, var(--negro) 0%, var(--gris-oscuro) 100%);
+    z-index: 1000;
+    transition: left 0.3s ease;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.menu-lateral.abierto {
+    left: 0;
+}
+
+.menu-contenido {
+    padding: 80px 30px 30px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Logo en el menú lateral */
+.logo-menu {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.logo-imagen-lateral {
+    height: 80px;
+    width: auto;
+    max-width: 220px;
+    object-fit: contain;
+}
+
+/* Lista del menú */
+.menu-lista {
+    list-style: none;
+    flex-grow: 1;
+}
+
+.menu-lista li {
+    margin-bottom: 20px;
+}
+
+.menu-lista a {
+    color: var(--blanco);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 15px 20px;
+    display: block;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.menu-lista a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.menu-lista a:hover::before {
+    left: 100%;
+}
+
+.menu-lista a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateX(10px);
+    color: var(--amarillo-eco);
+}
+
+/* Botón Postúlate */
+.btn-postulate {
+    background: linear-gradient(45deg, var(--amarillo-eco), var(--naranja-acento));
+    color: var(--negro);
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);
+}
+
+.btn-postulate:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 193, 7, 0.4);
+    background: linear-gradient(45deg, var(--naranja-acento), var(--amarillo-eco));
+}
+
+.btn-postulate:active {
+    transform: translateY(0);
+}
+
+/* Overlay */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.menu-overlay.activo {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Responsive - Unificado */
+@media (max-width: 768px) {
+    /* Estilos generales para móvil */
+    .seccion {
+        padding: 60px 0;
+    }
+    
+    .seccion h2 {
+        font-size: 28px;
+    }
+    
+    .seccion p {
+        font-size: 16px;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+    
+    /* Menú específico para móvil */
+    .menu-desktop {
+        display: none;
+    }
+    
+    .menu-movil {
+        display: block;
+    }
+    
+    .menu-lateral {
+        width: 280px;
+        left: -280px;
+    }
+    
+    .menu-contenido {
+        padding: 80px 20px 20px;
+    }
+    
+    .menu-lista a {
+        font-size: 16px;
+        padding: 12px 15px;
+    }
+    
+    /* Logo más grande en móviles */
+    .logo-imagen-lateral {
+        height: 100px;
+        max-width: 250px;
+    }
+}
+
+@media (min-width: 769px) {
+    /* Ocultar menú lateral en desktop */
+    .menu-lateral,
+    .menu-overlay {
+        display: none !important;
+    }
+}
+
+/* Estilos mejorados para pantallas grandes */
+@media (min-width: 1200px) {
+    .nav-container {
+        max-width: 1600px;
+        padding: 12px 40px;
+    }
+    
+    .logo-imagen {
+        height: 60px;
+        max-width: 320px;
+    }
+    
+    .menu-horizontal {
+        gap: 40px;
+    }
+    
+    .menu-horizontal a {
+        font-size: 18px;
+        padding: 14px 20px;
+    }
+    
+    .btn-postulate-desktop {
+        padding: 16px 35px;
+        font-size: 16px;
+        margin-left: 25px;
+    }
+}

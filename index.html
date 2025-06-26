@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+    <link rel="shortcut icon" href="Img/Logo_Color_Fondo_Negro_500x500.png" type="image/x-icon">
+    <title>Eco Smart Construcciones</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #ffffff;
+            font-family: 'Arial', sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .contenedor-carga {
+            text-align: center;
+            max-width: 90%;
+            width: 500px;
+        }
+
+        .logo-carga {
+            width: 400px;
+            height: auto;
+            max-width: 100%;
+            opacity: 0;
+            transform: scale(0.8);
+            animation: aparecerLogo 1.5s ease-out forwards;
+        }
+
+        .texto-carga {
+            margin-top: 30px;
+            font-size: 18px;
+            color: #333;
+            opacity: 0;
+            animation: aparecerTexto 1.5s ease-out 0.5s forwards;
+        }
+
+        .barra-carga {
+            width: 100%;
+            height: 4px;
+            background-color: #f0f0f0;
+            border-radius: 2px;
+            margin-top: 20px;
+            overflow: hidden;
+            opacity: 0;
+            animation: aparecerBarra 1.5s ease-out 1s forwards;
+        }
+
+        .progreso-carga {
+            height: 100%;
+            background: linear-gradient(90deg, #4CAF50, #45a049);
+            border-radius: 2px;
+            width: 0%;
+            animation: cargarProgreso 2s ease-in-out 1.5s forwards;
+        }
+
+        @keyframes aparecerLogo {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes aparecerTexto {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes aparecerBarra {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes cargarProgreso {
+            to {
+                width: 100%;
+            }
+        }
+
+        /* Animación de pulso suave para el logo */
+        .logo-carga {
+            animation: aparecerLogo 1.5s ease-out forwards, 
+                       pulsoSuave 3s ease-in-out 2s infinite;
+        }
+
+        @keyframes pulsoSuave {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.02);
+            }
+        }
+
+        /* Responsivo para móviles */
+        @media (max-width: 768px) {
+            .contenedor-carga {
+                width: 90%;
+                max-width: 350px;
+            }
+
+            .logo-carga {
+                width: 320px;
+            }
+
+            .texto-carga {
+                font-size: 16px;
+                margin-top: 20px;
+            }
+
+            .barra-carga {
+                margin-top: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-carga {
+                width: 280px;
+            }
+
+            .texto-carga {
+                font-size: 14px;
+            }
+        }
+
+        /* Animación de desvanecimiento para la transición */
+        .contenedor-carga.desvanecer {
+            animation: desvanecer 0.8s ease-out forwards;
+        }
+
+        @keyframes desvanecer {
+            to {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor-carga" id="contenedorCarga">
+        <img src="Img/Logo_Color_Fondo_Blanco_400x150.png" alt="Eco Smart Construcciones" class="logo-carga">
+        <div class="texto-carga">Bienvenido a Eco Smart Construcciones</div>
+        <div class="barra-carga">
+            <div class="progreso-carga"></div>
+        </div>
+    </div>
+
+    <script>
+        // Redireccionar después de 4 segundos con animación suave
+        setTimeout(function() {
+            const contenedor = document.getElementById('contenedorCarga');
+            contenedor.classList.add('desvanecer');
+            
+            // Esperar a que termine la animación antes de redireccionar
+            setTimeout(function() {
+                window.location.href = 'Secciones/Home.html';
+            }, 800);
+        }, 4000);
+
+        // Precargar la página de destino para una transición más rápida
+        const link = document.createElement('link');
+        link.rel = 'prefetch';
+        link.href = 'Secciones/Home.html';
+        document.head.appendChild(link);
+    </script>
+</body>
+</html>

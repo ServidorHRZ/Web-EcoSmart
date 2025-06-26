@@ -1,0 +1,15 @@
+{
+    "carrusel": {
+        "autoPlay": true,
+        "intervalo": 5000,
+        "slides": [
+            {
+                "tipo": "video",
+                "src": "../Img/Video_Principal.mp4",
+                "alt": "Video Principal Eco Smart",
+                "titulo": "Construcciones Eco Smart",
+                "subtitulo": "Innovación y Sostenibilidad"
+            }
+        ]
+    }
+} 
