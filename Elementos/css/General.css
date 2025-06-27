@@ -323,6 +323,7 @@ body {
     z-index: 1000;
     transition: left 0.3s ease;
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
 }
 
 .menu-lateral.abierto {
@@ -330,10 +331,11 @@ body {
 }
 
 .menu-contenido {
-    padding: 80px 30px 30px;
-    height: 100%;
+    padding: 60px 30px 20px;
+    min-height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 
 /* Logo en el menú lateral */
@@ -471,21 +473,44 @@ body {
     .menu-lateral {
         width: 280px;
         left: -280px;
+        height: 100%;
     }
     
     .menu-contenido {
-        padding: 80px 20px 20px;
+        padding: 60px 20px 15px;
+        height: calc(100% - 20px);
+    }
+    
+    .menu-lista {
+        margin-bottom: 15px;
+        flex-grow: 0;
+    }
+    
+    .menu-lista li {
+        margin-bottom: 8px;
     }
     
     .menu-lista a {
         font-size: 16px;
-        padding: 12px 15px;
+        padding: 10px 15px;
     }
     
-    /* Logo más grande en móviles */
+    .btn-postulate {
+        padding: 12px 20px;
+        font-size: 16px;
+        margin-bottom: 20px;
+        position: relative;
+        z-index: 2;
+    }
+    
+    /* Logo más pequeño en móviles para dar más espacio */
     .logo-imagen-lateral {
-        height: 100px;
-        max-width: 250px;
+        height: 80px;
+        max-width: 200px;
+    }
+    
+    .logo-menu {
+        margin-bottom: 30px;
     }
 }
 
