@@ -353,10 +353,11 @@ body {
 .menu-lista {
     list-style: none;
     flex-grow: 1;
+    margin-bottom: 7px;
 }
 
 .menu-lista li {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .menu-lista a {
@@ -398,7 +399,7 @@ body {
     background: linear-gradient(45deg, var(--amarillo-eco), var(--naranja-acento));
     color: var(--negro);
     border: none;
-    padding: 15px 30px;
+    padding: 12px 25px;
     font-size: 18px;
     font-weight: bold;
     border-radius: 25px;
@@ -407,6 +408,7 @@ body {
     text-transform: uppercase;
     letter-spacing: 1px;
     box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);
+    margin-top: auto;
 }
 
 .btn-postulate:hover {
