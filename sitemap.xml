@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+    
+    <!-- Página principal -->
+    <url>
+        <loc>http://ecosmartconstrucciones.com/</loc>
+        <lastmod>2024-12-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <image:image>
+            <image:loc>http://ecosmartconstrucciones.com/Img/Logo_Color_Fondo_Blanco_400x150.png</image:loc>
+            <image:caption>Logo Eco Smart Construcciones</image:caption>
+            <image:title>Eco Smart Construcciones - Logo</image:title>
+        </image:image>
+    </url>
+    
+    <!-- Página Home principal -->
+    <url>
+        <loc>http://ecosmartconstrucciones.com/Secciones/Home.html</loc>
+        <lastmod>2024-12-19</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>http://ecosmartconstrucciones.com/Img/Logo_Color_Fondo_Blanco_400x150.png</image:loc>
+            <image:caption>Eco Smart Construcciones - Construcción Sostenible</image:caption>
+            <image:title>Líderes en Construcción Sostenible</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>http://ecosmartconstrucciones.com/Img/IMG1.jpg</image:loc>
+            <image:caption>Proyecto de Construcción Sostenible</image:caption>
+            <image:title>Construcción Eco-Inteligente</image:title>
+        </image:image>
+    </url>
+
+</urlset> 
