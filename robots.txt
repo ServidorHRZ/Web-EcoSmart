@@ -1,0 +1,32 @@
+User-agent: *
+Allow: /
+
+# Permitir acceso a imágenes importantes
+Allow: /Img/
+Allow: /Elementos/
+
+# Sitemap
+Sitemap: http://ecosmartconstrucciones.com/sitemap.xml
+
+# Configuración específica para diferentes bots
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+# Bloquear archivos innecesarios
+Disallow: /*.css$
+Disallow: /*.js$
+Disallow: /README.md 

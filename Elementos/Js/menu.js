@@ -76,25 +76,11 @@ document.addEventListener('DOMContentLoaded', function() {
     if (btnPostulate) {
         btnPostulate.addEventListener('click', function() {
             cerrarMenu();
-            
-            // Simular acción del botón Postúlate
-            setTimeout(function() {
-                alert('¡Gracias por tu interés! Te redirigiremos al formulario de postulación.');
-                // Aquí puedes agregar la lógica para el formulario de postulación
-                // Por ejemplo: window.location.href = 'postulacion.html';
-            }, 300);
         });
     }
 
     // Event listener para el botón Postúlate desktop
-    if (btnPostulateDesktop) {
-        btnPostulateDesktop.addEventListener('click', function() {
-            // Simular acción del botón Postúlate
-            alert('¡Gracias por tu interés! Te redirigiremos al formulario de postulación.');
-            // Aquí puedes agregar la lógica para el formulario de postulación
-            // Por ejemplo: window.location.href = 'postulacion.html';
-        });
-    }
+    // Nota: La funcionalidad del modal se maneja en Home.html con onclick
 
     // Cerrar menú con la tecla Escape
     document.addEventListener('keydown', function(e) {

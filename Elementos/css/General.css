@@ -30,6 +30,9 @@ body {
     color: var(--negro);
     background-color: var(--gris-claro);
     overflow-x: hidden;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
 }
 
 /* Utilities */
@@ -151,7 +154,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    background: linear-gradient(90deg, var(--negro) 0%, var(--gris-oscuro) 100%);
+    background: var(--negro);
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     display: block;
@@ -249,7 +252,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    background: linear-gradient(90deg, var(--negro) 0%, var(--gris-oscuro) 100%);
+    background: var(--negro);
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     display: none;
@@ -319,7 +322,7 @@ body {
     left: -350px;
     width: 350px;
     height: 100vh;
-    background: linear-gradient(180deg, var(--negro) 0%, var(--gris-oscuro) 100%);
+    background: var(--negro);
     z-index: 1000;
     transition: left 0.3s ease;
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
