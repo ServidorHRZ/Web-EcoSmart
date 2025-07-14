@@ -25,6 +25,12 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.style.overflow = 'auto'; // Restaurar scroll del body
     }
 
+    // Función para limpiar selección activa
+    function limpiarSeleccionActiva() {
+        menuLinks.forEach(link => link.classList.remove('activo'));
+        menuLinksDesktop.forEach(link => link.classList.remove('activo'));
+    }
+
     // Event listener para el botón hamburguesa
     menuToggle.addEventListener('click', function() {
         if (menuLateral.classList.contains('abierto')) {
@@ -42,18 +48,22 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             
+            // Limpiar selección activa
+            limpiarSeleccionActiva();
+            
             // Obtener el destino del enlace
             const destino = this.getAttribute('href');
             
             // Cerrar el menú
             cerrarMenu();
             
-            // Simular navegación (puedes personalizar esto según tus necesidades)
-            setTimeout(function() {
-                console.log('Navegando a: ' + destino);
-                // Aquí puedes agregar la lógica de navegación real
-                // Por ejemplo: window.location.href = destino;
-            }, 300);
+            // Navegar a la sección
+            if (destino && destino.startsWith('#')) {
+                const seccion = document.querySelector(destino);
+                if (seccion) {
+                    seccion.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
         });
     });
 
@@ -62,13 +72,19 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             
+            // Limpiar selección activa
+            limpiarSeleccionActiva();
+            
             // Obtener el destino del enlace
             const destino = this.getAttribute('href');
             
-            // Simular navegación (puedes personalizar esto según tus necesidades)
-            console.log('Navegando a: ' + destino);
-            // Aquí puedes agregar la lógica de navegación real
-            // Por ejemplo: window.location.href = destino;
+            // Navegar a la sección
+            if (destino && destino.startsWith('#')) {
+                const seccion = document.querySelector(destino);
+                if (seccion) {
+                    seccion.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
         });
     });
 
@@ -111,6 +127,9 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 100 + (index * 50));
         });
     }, 100);
+
+    // Limpiar selección activa al cargar la página
+    limpiarSeleccionActiva();
 });
 
 // ===== FUNCIONALIDAD DEL CARRUSEL =====
@@ -123,100 +142,111 @@ document.addEventListener('DOMContentLoaded', function() {
     const btnNext = document.getElementById('carruselNext');
     const totalSlides = slides.length;
 
-    // Función para mostrar slide específico
-    function mostrarSlide(indice) {
-        // Remover clase activo de todos los slides e indicadores
-        slides.forEach(slide => slide.classList.remove('activo'));
-        indicadores.forEach(indicador => indicador.classList.remove('activo'));
+    // Solo inicializar el carrusel si hay slides
+    if (totalSlides > 0) {
+        // Función para mostrar slide específico
+        function mostrarSlide(indice) {
+            // Remover clase activo de todos los slides
+            slides.forEach(slide => slide.classList.remove('activo'));
+            
+            // Remover clase activo de indicadores si existen
+            if (indicadores.length > 0) {
+                indicadores.forEach(indicador => indicador.classList.remove('activo'));
+            }
 
-        // Validar índice
-        if (indice >= totalSlides) indice = 0;
-        if (indice < 0) indice = totalSlides - 1;
+            // Validar índice
+            if (indice >= totalSlides) indice = 0;
+            if (indice < 0) indice = totalSlides - 1;
 
-        // Actualizar slide actual
-        slideActual = indice;
+            // Actualizar slide actual
+            slideActual = indice;
 
-        // Activar slide e indicador correspondiente
-        slides[slideActual].classList.add('activo');
-        indicadores[slideActual].classList.add('activo');
-    }
-
-    // Función para ir al siguiente slide
-    function siguienteSlide() {
-        mostrarSlide(slideActual + 1);
-    }
-
-    // Función para ir al slide anterior
-    function anteriorSlide() {
-        mostrarSlide(slideActual - 1);
-    }
-
-    // Event listeners para botones de navegación
-    if (btnNext) {
-        btnNext.addEventListener('click', siguienteSlide);
-    }
-    
-    if (btnPrev) {
-        btnPrev.addEventListener('click', anteriorSlide);
-    }
-
-    // Event listeners para indicadores
-    indicadores.forEach((indicador, indice) => {
-        indicador.addEventListener('click', () => {
-            mostrarSlide(indice);
-        });
-    });
-
-    // Auto-play del carrusel (opcional)
-    let intervalCarrusel = setInterval(siguienteSlide, 5000); // Cambia cada 5 segundos
-
-    // Pausar auto-play al pasar el mouse por encima
-    const carruselContenedor = document.querySelector('.carrusel-contenedor');
-    if (carruselContenedor) {
-        carruselContenedor.addEventListener('mouseenter', () => {
-            clearInterval(intervalCarrusel);
-        });
-
-        carruselContenedor.addEventListener('mouseleave', () => {
-            intervalCarrusel = setInterval(siguienteSlide, 5000);
-        });
-    }
-
-    // Control con teclado
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowLeft') {
-            anteriorSlide();
-        } else if (e.key === 'ArrowRight') {
-            siguienteSlide();
+            // Activar slide actual
+            slides[slideActual].classList.add('activo');
+            
+            // Activar indicador si existe
+            if (indicadores.length > 0) {
+                indicadores[slideActual].classList.add('activo');
+            }
         }
-    });
 
-    // Touch/swipe support para móviles
-    let startX = 0;
-    let endX = 0;
+        // Función para ir al siguiente slide
+        function siguienteSlide() {
+            mostrarSlide(slideActual + 1);
+        }
 
-    if (carruselContenedor) {
-        carruselContenedor.addEventListener('touchstart', (e) => {
-            startX = e.touches[0].clientX;
-        });
+        // Función para ir al slide anterior
+        function anteriorSlide() {
+            mostrarSlide(slideActual - 1);
+        }
 
-        carruselContenedor.addEventListener('touchend', (e) => {
-            endX = e.changedTouches[0].clientX;
-            handleSwipe();
-        });
+        // Event listeners para botones de navegación si existen
+        if (btnNext) {
+            btnNext.addEventListener('click', siguienteSlide);
+        }
+        
+        if (btnPrev) {
+            btnPrev.addEventListener('click', anteriorSlide);
+        }
 
-        function handleSwipe() {
-            const diffX = startX - endX;
-            const minSwipeDistance = 50;
+        // Event listeners para indicadores si existen
+        if (indicadores.length > 0) {
+            indicadores.forEach((indicador, indice) => {
+                indicador.addEventListener('click', () => {
+                    mostrarSlide(indice);
+                });
+            });
+        }
 
-            if (Math.abs(diffX) > minSwipeDistance) {
-                if (diffX > 0) {
-                    siguienteSlide(); // Swipe izquierda - siguiente
-                } else {
-                    anteriorSlide(); // Swipe derecha - anterior
+        // Auto-play del carrusel
+        let intervalCarrusel = setInterval(siguienteSlide, 5000);
+
+        // Pausar auto-play al pasar el mouse por encima
+        const carruselContenedor = document.querySelector('.carrusel-contenedor');
+        if (carruselContenedor) {
+            carruselContenedor.addEventListener('mouseenter', () => {
+                clearInterval(intervalCarrusel);
+            });
+
+            carruselContenedor.addEventListener('mouseleave', () => {
+                intervalCarrusel = setInterval(siguienteSlide, 5000);
+            });
+
+            // Touch/swipe support para móviles
+            let startX = 0;
+            let endX = 0;
+
+            carruselContenedor.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+            });
+
+            carruselContenedor.addEventListener('touchend', (e) => {
+                endX = e.changedTouches[0].clientX;
+                handleSwipe();
+            });
+
+            function handleSwipe() {
+                const diffX = startX - endX;
+                const minSwipeDistance = 50;
+
+                if (Math.abs(diffX) > minSwipeDistance) {
+                    if (diffX > 0) {
+                        siguienteSlide();
+                    } else {
+                        anteriorSlide();
+                    }
                 }
             }
         }
+
+        // Control con teclado
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                anteriorSlide();
+            } else if (e.key === 'ArrowRight') {
+                siguienteSlide();
+            }
+        });
     }
 });
 
