@@ -24,10 +24,34 @@
 
 .carrusel-wrapper {
     width: 100%;
-    height: 600px;
+    height: 75vh; /* Altura relativa a la ventana */
+    max-height: 800px; /* Altura máxima para pantallas muy grandes */
+    min-height: 500px; /* Altura mínima para mantener proporción */
     position: relative;
     overflow: hidden;
     background: #000000;
+}
+
+/* Media queries para el carrusel */
+@media (min-width: 1921px) {
+    .carrusel-wrapper {
+        height: 70vh;
+        max-height: 900px;
+    }
+}
+
+@media (max-width: 1440px) {
+    .carrusel-wrapper {
+        height: 70vh;
+        min-height: 450px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .carrusel-wrapper {
+        height: 65vh;
+        min-height: 400px;
+    }
 }
 
 .carrusel-slides {
@@ -108,8 +132,8 @@
     }
     
     .carrusel-wrapper {
-        height: 350px;
-        background: #000000;
+        height: 50vh;
+        min-height: 350px;
     }
 }
 
@@ -129,16 +153,16 @@
     }
     
     .carrusel-wrapper {
-        height: 250px;
-        background: #000000;
+        height: 40vh;
+        min-height: 250px;
     }
 }
 
 /* Pantallas muy pequeñas */
 @media (max-width: 320px) {
     .carrusel-wrapper {
-        height: 200px;
-        background: #000000;
+        height: 35vh;
+        min-height: 200px;
     }
 }
 
