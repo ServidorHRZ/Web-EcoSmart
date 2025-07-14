@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto</title>
+    <title>Contacto - Eco Smart Construcciones</title>
     <link rel="stylesheet" href="../Elementos/css/General.css">
+    <link rel="stylesheet" href="../Elementos/css/Home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="shortcut icon" href="../Img/Logo_Color_Fondo_Negro_500x500.png" type="image/x-icon">
 </head>
 <body>
     <!-- Menú horizontal para desktop -->
@@ -14,11 +17,11 @@
                 <img src="../Img/Logo_Color_Fondo_Blanco_400x150.png" alt="Eco Smart Construcciones" class="logo-imagen">
             </div>
             <ul class="menu-horizontal">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#nosotros">Nosotros</a></li>
-                <li><a href="#impacto">Impacto Ambiental</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="Home.html#inicio">Inicio</a></li>
+                <li><a href="Home.html#servicios">Servicios</a></li>
+                <li><a href="Home.html#nosotros">Nosotros</a></li>
+                <li><a href="Home.html#impacto">Impacto Ambiental</a></li>
+                <li><a href="Contacto.html">Contacto</a></li>
             </ul>
             <button class="btn-postulate-desktop" onclick="abrirFormularioPostulacion()">Postúlate</button>
         </div>
@@ -45,11 +48,11 @@
                 <img src="../Img/Logo_Color_Fondo_Negro_500x500.png" alt="Eco Smart Construcciones" class="logo-imagen-lateral">
             </div>
             <ul class="menu-lista">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#nosotros">Nosotros</a></li>
-                <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#impacto">Impacto Ambiental</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="Home.html#inicio">Inicio</a></li>
+                <li><a href="Home.html#nosotros">Nosotros</a></li>
+                <li><a href="Home.html#servicios">Servicios</a></li>
+                <li><a href="Home.html#impacto">Impacto Ambiental</a></li>
+                <li><a href="Contacto.html">Contacto</a></li>
             </ul>
             <button class="btn-postulate" onclick="abrirFormularioPostulacion()">Postúlate</button>
         </div>
@@ -58,8 +61,167 @@
     <!-- Overlay para cerrar el menú móvil -->
     <div class="menu-overlay" id="menuOverlay"></div>
 
+    <!-- Contenido de la página de contacto -->
+    <section class="seccion-contacto" id="contacto">
+        <div class="contenedor-principal-contacto">
+            <div class="encabezado-contacto">
+                <h2 class="titulo-contacto titulo-animado">Contáctanos</h2>
+                <p class="subtitulo-contacto animar-entrada">Estamos aquí para hacer realidad tu proyecto</p>
+            </div>
+            
+            <div class="contenido-contacto">
+                <!-- Información de contacto -->
+                <div class="info-contacto animar-entrada-izquierda">
+                    <div class="contacto-item">
+                        <div class="contacto-icono">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contacto-texto">
+                            <h4>Ubicación</h4>
+                            <p>Bogotá, Colombia<br>Zona Empresarial</p>
+                        </div>
+                    </div>
+                    <div class="contacto-item">
+                        <div class="contacto-icono">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contacto-texto">
+                            <h4>Teléfono</h4>
+                            <p>+57 (301) 123-4567<br>+57 (1) 234-5678</p>
+                        </div>
+                    </div>
+                    <div class="contacto-item">
+                        <div class="contacto-icono">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contacto-texto">
+                            <h4>Email</h4>
+                            <p>info@ecosmartconstrucciones.com<br>proyectos@ecosmartconstrucciones.com</p>
+                        </div>
+                    </div>
+                    <div class="contacto-item">
+                        <div class="contacto-icono">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contacto-texto">
+                            <h4>Horarios</h4>
+                            <p>Lunes - Viernes: 8:00 AM - 6:00 PM<br>Sábados: 9:00 AM - 2:00 PM</p>
+                        </div>
+                    </div>
+                </div>
 
+                <!-- Formulario de contacto -->
+                <div class="formulario-contacto animar-entrada-derecha">
+                    <form class="form-contacto" id="contactoForm">
+                        <h3>Envíanos un mensaje</h3>
+                        <div class="form-grupo">
+                            <label for="nombre">Nombre completo</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+                        <div class="form-grupo">
+                            <label for="email">Correo electrónico</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-grupo">
+                            <label for="telefono">Teléfono</label>
+                            <input type="tel" id="telefono" name="telefono" required>
+                        </div>
+                        <div class="form-grupo">
+                            <label for="servicio">Servicio de interés</label>
+                            <select id="servicio" name="servicio" required>
+                                <option value="">Selecciona un servicio</option>
+                                <option value="obras-civiles">Obras Civiles</option>
+                                <option value="diseno-planos">Diseño y Planos</option>
+                                <option value="construccion-inteligente">Construcción Inteligente</option>
+                                <option value="automatizacion">Automatización</option>
+                                <option value="consultoria">Consultoría</option>
+                                <option value="impacto-ambiental">Impacto Ambiental</option>
+                            </select>
+                        </div>
+                        <div class="form-grupo">
+                            <label for="mensaje">Mensaje</label>
+                            <textarea id="mensaje" name="mensaje" rows="4" required placeholder="Cuéntanos sobre tu proyecto..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-enviar">
+                            <i class="fas fa-paper-plane"></i>
+                            Enviar mensaje
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Redes sociales -->
+            <div class="redes-sociales animar-entrada">
+                <h3>Síguenos</h3>
+                <div class="redes-iconos">
+                    <a href="#" class="red-social">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="#" class="red-social">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="red-social">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#" class="red-social">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="red-social">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <script src="../Elementos/Js/menu.js"></script>
+    <script src="../Elementos/Js/animaciones-scroll.js"></script>
+    
+    <!-- Script para el formulario de contacto -->
+    <script>
+        // Funcionalidad del formulario de contacto
+        document.getElementById('contactoForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Obtener los valores del formulario
+            const formData = new FormData(this);
+            const datos = {
+                nombre: formData.get('nombre'),
+                email: formData.get('email'),
+                telefono: formData.get('telefono'),
+                servicio: formData.get('servicio'),
+                mensaje: formData.get('mensaje')
+            };
+            
+            // Validar datos
+            if (!datos.nombre || !datos.email || !datos.telefono || !datos.servicio || !datos.mensaje) {
+                alert('Por favor, completa todos los campos obligatorios.');
+                return;
+            }
+            
+            // Simular envío (aquí puedes integrar con un servicio real)
+            const btnEnviar = document.querySelector('.btn-enviar');
+            const textoOriginal = btnEnviar.innerHTML;
+            
+            // Cambiar botón a estado de envío
+            btnEnviar.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+            btnEnviar.disabled = true;
+            
+            // Simular tiempo de envío
+            setTimeout(() => {
+                // Restaurar botón
+                btnEnviar.innerHTML = textoOriginal;
+                btnEnviar.disabled = false;
+                
+                // Mostrar mensaje de éxito
+                alert('¡Mensaje enviado exitosamente! Te contactaremos pronto.');
+                
+                // Limpiar formulario
+                this.reset();
+            }, 2000);
+            
+            console.log('Datos del formulario:', datos);
+        });
+    </script>
 </body>
 </html>
