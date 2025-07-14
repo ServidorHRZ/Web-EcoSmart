@@ -21,7 +21,7 @@ function suavizarScroll() {
 
 // Función para añadir efectos de hover avanzados a las tarjetas
 function efectosHoverAvanzados() {
-    const tarjetas = document.querySelectorAll('.servicio-card, .mvv-item, .estadistica-item');
+    const tarjetas = document.querySelectorAll('.servicio-card, .estadistica-item, .practica-item, .certificacion-item');
     
     tarjetas.forEach(tarjeta => {
         tarjeta.addEventListener('mouseenter', function() {
@@ -96,8 +96,9 @@ function optimizarMovil() {
         estilosMovil.textContent = `
             @media (max-width: 768px) {
                 .servicio-card:hover,
-                .mvv-item:hover,
-                .estadistica-item:hover {
+                .estadistica-item:hover,
+                .practica-item:hover,
+                .certificacion-item:hover {
                     transform: none !important;
                     box-shadow: none !important;
                 }

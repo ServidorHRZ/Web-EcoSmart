@@ -46,6 +46,7 @@
         <meta name="msapplication-TileColor" content="#4CAF50">
         <meta name="application-name" content="Eco Smart Construcciones">
         <meta name="apple-mobile-web-app-title" content="Eco Smart Construcciones">
+        <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="default">
         
@@ -157,7 +158,6 @@
                     <li><a href="#inicio">Inicio</a></li>
                     <li><a href="#servicios">Servicios</a></li>
                     <li><a href="#nosotros">Nosotros</a></li>
-                    <li><a href="#productos">Productos</a></li>
                     <li><a href="#impacto">Impacto Ambiental</a></li>
                     <li><a href="#contacto">Contacto</a></li>
                 </ul>
@@ -186,12 +186,11 @@
                     <img src="../Img/Logo_Color_Fondo_Negro_500x500.png" alt="Eco Smart Construcciones" class="logo-imagen-lateral">
                 </div>
                 <ul class="menu-lista">
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#nosotros">Nosotros</a></li>
-                    <li><a href="#servicios">Servicios</a></li>
-                    <li><a href="#productos">Productos</a></li>
-                    <li><a href="#impacto">Impacto Ambiental</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a href="#inicio" class="menu-link">Inicio</a></li>
+                    <li><a href="#nosotros" class="menu-link">Nosotros</a></li>
+                    <li><a href="#servicios" class="menu-link">Servicios</a></li>
+                    <li><a href="#impacto" class="menu-link">Impacto Ambiental</a></li>
+                    <li><a href="#contacto" class="menu-link">Contacto</a></li>
                 </ul>
                 <button class="btn-postulate" onclick="abrirFormularioPostulacion()">Postúlate</button>
             </div>
@@ -260,31 +259,6 @@
                         <div class="texto-estadistica">Profesionales Expertos</div>
                     </div>
                 </div>
-
-                <!-- Misión, Visión, Valores -->
-                <div class="mision-vision-valores">
-                    <div class="mvv-item animar-escala delay-1">
-                        <div class="mvv-icono">
-                            <i class="fa-solid fa-bullseye"></i>
-                        </div>
-                        <h4 class="mvv-titulo">Misión</h4>
-                        <p class="mvv-descripcion">Proporcionar soluciones de construcción sostenibles e innovadoras que superen las expectativas de nuestros clientes, contribuyendo al desarrollo de un futuro más verde y eficiente.</p>
-                    </div>
-                    <div class="mvv-item animar-escala delay-2">
-                        <div class="mvv-icono">
-                            <i class="fa-solid fa-eye"></i>
-                        </div>
-                        <h4 class="mvv-titulo">Visión</h4>
-                        <p class="mvv-descripcion">Ser la empresa líder en construcción eco-inteligente, reconocida por nuestra excelencia, innovación y compromiso con la sostenibilidad ambiental en cada proyecto.</p>
-                    </div>
-                    <div class="mvv-item animar-escala delay-3">
-                        <div class="mvv-icono">
-                            <i class="fa-solid fa-heart"></i>
-                        </div>
-                        <h4 class="mvv-titulo">Valores</h4>
-                        <p class="mvv-descripcion">Integridad, excelencia, sostenibilidad, innovación y compromiso con nuestros clientes son los pilares fundamentales que guían cada decisión y acción en nuestra empresa.</p>
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -292,7 +266,7 @@
         <section class="seccion-servicios" id="servicios">
             <div class="contenedor-principal-servicios">
                 <div class="encabezado-servicios">
-                    <h2 class="titulo-servicios titulo-animado">Nuestros Servicios</h2>
+                    <h2 class="titulo-servicios titulo-animado">Servicios</h2>
                     <p class="subtitulo-servicios animar-entrada">Soluciones integrales para cada etapa de tu proyecto</p>
                 </div>
                 
@@ -390,7 +364,205 @@
                 <div class="cta-servicios animar-entrada">
                     <h3>¿Listo para iniciar tu proyecto?</h3>
                     <p>Contáctanos para una consultoría gratuita y descubre cómo podemos hacer realidad tu visión</p>
-                    <button class="btn-cta-principal">Solicitar Cotización</button>
+                    <button class="btn-cta-principal" onclick="scrollToSection('#contacto')">Solicitar Cotización</button>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Sección Impacto Ambiental -->
+        <section class="seccion-impacto" id="impacto">
+            <div class="contenedor-principal-impacto">
+                <div class="encabezado-impacto">
+                    <h2 class="titulo-impacto titulo-animado">Impacto Ambiental</h2>
+                    <p class="subtitulo-impacto animar-entrada">Comprometidos con un futuro sostenible</p>
+                </div>
+                
+                <div class="contenido-impacto">
+                    <!-- Intro del impacto -->
+                    <div class="intro-impacto animar-entrada">
+                        <h3>Construyendo un Futuro Verde</h3>
+                        <p>En Eco Smart Construcciones, cada proyecto es una oportunidad para reducir nuestra huella ambiental y promover la sostenibilidad. Implementamos tecnologías verdes y prácticas eco-responsables que benefician tanto a nuestros clientes como al planeta.</p>
+                    </div>
+
+                    <!-- Estadísticas ambientales -->
+                    <div class="estadisticas-ambientales">
+                        <div class="stat-ambiental contador-animado efecto-onda delay-1">
+                            <div class="stat-icono">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <div class="stat-numero">35%</div>
+                            <div class="stat-texto">Reducción de Emisiones CO2</div>
+                        </div>
+                        <div class="stat-ambiental contador-animado efecto-onda delay-2">
+                            <div class="stat-icono">
+                                <i class="fas fa-tint"></i>
+                            </div>
+                            <div class="stat-numero">50%</div>
+                            <div class="stat-texto">Ahorro de Agua</div>
+                        </div>
+                        <div class="stat-ambiental contador-animado efecto-onda delay-3">
+                            <div class="stat-icono">
+                                <i class="fas fa-recycle"></i>
+                            </div>
+                            <div class="stat-numero">80%</div>
+                            <div class="stat-texto">Materiales Reciclados</div>
+                        </div>
+                        <div class="stat-ambiental contador-animado efecto-onda delay-4">
+                            <div class="stat-icono">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <div class="stat-numero">60%</div>
+                            <div class="stat-texto">Eficiencia Energética</div>
+                        </div>
+                    </div>
+
+                    <!-- Prácticas sostenibles -->
+                    <div class="practicas-sostenibles">
+                        <div class="practica-item card-animacion delay-1">
+                            <div class="practica-icono">
+                                <i class="fas fa-solar-panel"></i>
+                            </div>
+                            <h4>Energía Renovable</h4>
+                            <p>Instalamos sistemas de energía solar y eólica para reducir la dependencia de combustibles fósiles.</p>
+                        </div>
+                        <div class="practica-item card-animacion delay-2">
+                            <div class="practica-icono">
+                                <i class="fas fa-water"></i>
+                            </div>
+                            <h4>Gestión del Agua</h4>
+                            <p>Implementamos sistemas de recolección de agua lluvia y tecnologías de purificación.</p>
+                        </div>
+                        <div class="practica-item card-animacion delay-3">
+                            <div class="practica-icono">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <h4>Materiales Ecológicos</h4>
+                            <p>Utilizamos materiales sostenibles y de origen local para minimizar el impacto ambiental.</p>
+                        </div>
+                        <div class="practica-item card-animacion delay-4">
+                            <div class="practica-icono">
+                                <i class="fas fa-tree"></i>
+                            </div>
+                            <h4>Compensación Carbon</h4>
+                            <p>Plantamos árboles y desarrollamos proyectos de reforestación para neutralizar emisiones.</p>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Contacto -->
+        <section class="seccion-contacto" id="contacto">
+            <div class="contenedor-principal-contacto">
+                <div class="encabezado-contacto">
+                    <h2 class="titulo-contacto titulo-animado">Contáctanos</h2>
+                    <p class="subtitulo-contacto animar-entrada">Estamos aquí para hacer realidad tu proyecto</p>
+                </div>
+                
+                <div class="contenido-contacto">
+                    <!-- Información de contacto -->
+                    <div class="info-contacto animar-entrada-izquierda">
+                        <div class="contacto-item">
+                            <div class="contacto-icono">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contacto-texto">
+                                <h4>Ubicación</h4>
+                                <p>Bogotá, Colombia<br>Zona Empresarial</p>
+                            </div>
+                        </div>
+                        <div class="contacto-item">
+                            <div class="contacto-icono">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contacto-texto">
+                                <h4>Teléfono</h4>
+                                <p>+57 (301) 123-4567<br>+57 (1) 234-5678</p>
+                            </div>
+                        </div>
+                        <div class="contacto-item">
+                            <div class="contacto-icono">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contacto-texto">
+                                <h4>Email</h4>
+                                <p>info@ecosmartconstrucciones.com<br>proyectos@ecosmartconstrucciones.com</p>
+                            </div>
+                        </div>
+                        <div class="contacto-item">
+                            <div class="contacto-icono">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contacto-texto">
+                                <h4>Horarios</h4>
+                                <p>Lunes - Viernes: 8:00 AM - 6:00 PM<br>Sábados: 9:00 AM - 2:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Formulario de contacto -->
+                    <div class="formulario-contacto animar-entrada-derecha">
+                        <form class="form-contacto" id="contactoForm">
+                            <h3>Envíanos un mensaje</h3>
+                            <div class="form-grupo">
+                                <label for="nombre">Nombre completo</label>
+                                <input type="text" id="nombre" name="nombre" required>
+                            </div>
+                            <div class="form-grupo">
+                                <label for="email">Correo electrónico</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-grupo">
+                                <label for="telefono">Teléfono</label>
+                                <input type="tel" id="telefono" name="telefono" required>
+                            </div>
+                            <div class="form-grupo">
+                                <label for="servicio">Servicio de interés</label>
+                                <select id="servicio" name="servicio" required>
+                                    <option value="">Selecciona un servicio</option>
+                                    <option value="obras-civiles">Obras Civiles</option>
+                                    <option value="diseno-planos">Diseño y Planos</option>
+                                    <option value="construccion-inteligente">Construcción Inteligente</option>
+                                    <option value="automatizacion">Automatización</option>
+                                    <option value="consultoria">Consultoría</option>
+                                    <option value="impacto-ambiental">Impacto Ambiental</option>
+                                </select>
+                            </div>
+                            <div class="form-grupo">
+                                <label for="mensaje">Mensaje</label>
+                                <textarea id="mensaje" name="mensaje" rows="4" required placeholder="Cuéntanos sobre tu proyecto..."></textarea>
+                            </div>
+                            <button type="submit" class="btn-enviar">
+                                <i class="fas fa-paper-plane"></i>
+                                Enviar mensaje
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Redes sociales -->
+                <div class="redes-sociales animar-entrada">
+                    <h3>Síguenos</h3>
+                    <div class="redes-iconos">
+                        <a href="#" class="red-social">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="red-social">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="red-social">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="red-social">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="red-social">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -466,6 +638,85 @@
                     cerrarModalPostulacion();
                 }
             });
+
+            // Funcionalidad del formulario de contacto
+            document.getElementById('contactoForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Obtener los valores del formulario
+                const formData = new FormData(this);
+                const datos = {
+                    nombre: formData.get('nombre'),
+                    email: formData.get('email'),
+                    telefono: formData.get('telefono'),
+                    servicio: formData.get('servicio'),
+                    mensaje: formData.get('mensaje')
+                };
+                
+                // Validar datos
+                if (!datos.nombre || !datos.email || !datos.telefono || !datos.servicio || !datos.mensaje) {
+                    alert('Por favor, completa todos los campos obligatorios.');
+                    return;
+                }
+                
+                // Simular envío (aquí puedes integrar con un servicio real)
+                const btnEnviar = document.querySelector('.btn-enviar');
+                const textoOriginal = btnEnviar.innerHTML;
+                
+                // Cambiar botón a estado de envío
+                btnEnviar.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+                btnEnviar.disabled = true;
+                
+                // Simular tiempo de envío
+                setTimeout(() => {
+                    // Restaurar botón
+                    btnEnviar.innerHTML = textoOriginal;
+                    btnEnviar.disabled = false;
+                    
+                    // Mostrar mensaje de éxito
+                    alert('¡Mensaje enviado exitosamente! Te contactaremos pronto.');
+                    
+                    // Limpiar formulario
+                    this.reset();
+                }, 2000);
+                
+                console.log('Datos del formulario:', datos);
+            });
+
+            // Funcionalidad para scroll suave mejorado
+            document.addEventListener('DOMContentLoaded', function() {
+                const enlaces = document.querySelectorAll('a[href^="#"]');
+                
+                enlaces.forEach(enlace => {
+                    enlace.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const targetId = this.getAttribute('href');
+                        const targetElement = document.querySelector(targetId);
+                        
+                        if (targetElement) {
+                            const offsetTop = targetElement.offsetTop - 80; // Ajuste para el menú fijo
+                            
+                            window.scrollTo({
+                                top: offsetTop,
+                                behavior: 'smooth'
+                            });
+                        }
+                    });
+                });
+            });
+
+            // Función para hacer scroll a una sección específica
+            function scrollToSection(sectionId) {
+                const targetElement = document.querySelector(sectionId);
+                if (targetElement) {
+                    const offsetTop = targetElement.offsetTop - 80; // Ajuste para el menú fijo
+                    
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            }
         </script>
     </body>
 </html>
