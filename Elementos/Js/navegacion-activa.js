@@ -45,6 +45,11 @@ document.addEventListener('DOMContentLoaded', function() {
             return href === 'Nosotros.html' || href === '#nosotros';
         }
         
+        // Si estamos en Productos.html
+        if (nombrePagina === 'Productos.html') {
+            return href === 'Productos.html' || href === '#productos';
+        }
+        
         // Si estamos en Impacto.html
         if (nombrePagina === 'Impacto.html') {
             return href === 'Impacto.html' || href === '#impacto';
@@ -100,4 +105,4 @@ document.addEventListener('DOMContentLoaded', function() {
         // Detectar sección inicial
         setTimeout(detectarSeccionVisible, 100);
     }
-}); 
+});
