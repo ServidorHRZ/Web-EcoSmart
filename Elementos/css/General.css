@@ -85,6 +85,18 @@ body {
     animation: slideInLeft 0.6s ease forwards;
 }
 
+/* Animaciones de entrada para tarjetas */
+.servicio-card {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.6s ease;
+}
+
+.servicio-card.fade-in-up {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* Botones generales */
 .btn {
     display: inline-block;
@@ -221,6 +233,16 @@ body {
 }
 
 .menu-horizontal a:hover::after {
+    width: 80%;
+}
+
+/* Estilos para el enlace activo */
+.menu-horizontal a.activo {
+    color: var(--amarillo-eco);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.menu-horizontal a.activo::after {
     width: 80%;
 }
 
@@ -397,6 +419,13 @@ body {
     background-color: rgba(255, 255, 255, 0.1);
     transform: translateX(10px);
     color: var(--amarillo-eco);
+}
+
+/* Estilos para el enlace activo en menú móvil */
+.menu-lista a.activo {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: var(--amarillo-eco);
+    transform: translateX(10px);
 }
 
 /* Botón Postúlate */

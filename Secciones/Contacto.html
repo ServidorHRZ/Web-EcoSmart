@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto</title>
     <link rel="stylesheet" href="../Elementos/css/General.css">
-    <link rel="stylesheet" href="../Elementos/css/Home.css">
+    <link rel="stylesheet" href="../Elementos/css/Contacto.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="shortcut icon" href="../Img/Logo_Color_Fondo_Negro_500x500.png" type="image/x-icon">
 </head>
@@ -18,7 +18,7 @@
                     class="logo-imagen">
             </div>
             <ul class="menu-horizontal">
-                <li><a href="Contacto.html">Inicio</a></li>
+                <li><a href="Home.html">Inicio</a></li>
                 <li><a href="Nosotros.html">Nosotros</a></li>
                 <li><a href="Servicios.html">Servicios</a></li>
                 <li><a href="Impacto.html">Impacto Ambiental</a></li>
@@ -51,7 +51,7 @@
                     class="logo-imagen-lateral">
             </div>
             <ul class="menu-lista">
-                <li><a href="Contacto.html" class="menu-link">Inicio</a></li>
+                <li><a href="Home.html" class="menu-link">Inicio</a></li>
                 <li><a href="Nosotros.html" class="menu-link">Nosotros</a></li>
                 <li><a href="Servicios.html" class="menu-link">Servicios</a></li>
                 <li><a href="Impacto.html" class="menu-link">Impacto Ambiental</a></li>
@@ -64,75 +64,125 @@
     <!-- Overlay para cerrar el menú móvil -->
     <div class="menu-overlay" id="menuOverlay"></div>
 
-    <!-- Carrusel Principal -->
-    <section class="carrusel-principal" id="inicio">
-        <img src="../Img/fondo2.png" alt="Fondo" class="carrusel-background">
-        <div class="carrusel-contenedor">
-            <div class="carrusel-wrapper">
-                <div class="carrusel-slides">
-                    <!-- Slide 1 - Video -->
-                    <div class="slide activo">
-                        <video class="slide-video" autoplay muted loop>
-                            <source src="../Img/Video_Principal.mp4" type="video/mp4">
-                            Tu navegador no soporta el elemento de video.
-                        </video>
+    <!-- Sección Contacto -->
+    <section class="seccion-contacto" id="contacto">
+        <div class="contenedor-principal-contacto">
+           
+            <div class="encabezado-contacto">
+                <h2 class="titulo-contacto titulo-animado">Contáctanos</h2>
+                <p class="subtitulo-contacto animar-entrada">Estamos aquí para hacer realidad tu proyecto</p>
+            </div>
+            
+            <div class="contenido-contacto">
+                <!-- Información de contacto -->
+                <div class="info-contacto animar-entrada-izquierda">
+                    <div class="contacto-item">
+                        <div class="contacto-icono">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contacto-texto">
+                            <h4>Ubicación</h4>
+                            <p>Colombia<br>Zona Empresarial</p>
+                        </div>
                     </div>
+                    <div class="contacto-item">
+                        <div class="contacto-icono">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contacto-texto">
+                            <h4>Teléfono</h4>
+                            <p>+57 (301) 123-4567<br>+57 (1) 234-5678</p>
+                        </div>
+                    </div>
+                    <div class="contacto-item">
+                        <div class="contacto-icono">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contacto-texto">
+                            <h4>Email</h4>
+                            <p>info@ecosmartconstrucciones.com<br>proyectos@ecosmartconstrucciones.com</p>
+                        </div>
+                    </div>
+                    <div class="contacto-item">
+                        <div class="contacto-icono">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contacto-texto">
+                            <h4>Horarios</h4>
+                            <p>Lunes - Viernes: 8:00 AM - 6:00 PM<br>Sábados: 9:00 AM - 2:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulario de contacto -->
+                <div class="formulario-contacto animar-entrada-derecha">
+                    <form class="form-contacto" id="contactoForm">
+                        <h3>Envíanos un mensaje</h3>
+                        <div class="form-grupo">
+                            <label for="nombre">Nombre completo</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+                        <div class="form-grupo">
+                            <label for="email">Correo electrónico</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-grupo">
+                            <label for="telefono">Teléfono</label>
+                            <input type="tel" id="telefono" name="telefono" required>
+                        </div>
+                        <div class="form-grupo">
+                            <label for="servicio">Servicio de interés</label>
+                            <select id="servicio" name="servicio" required>
+                                <option value="">Selecciona un servicio</option>
+                                <option value="obras-civiles">Obras Civiles</option>
+                                <option value="diseno-planos">Diseño y Planos</option>
+                                <option value="construccion-inteligente">Construcción Inteligente</option>
+                                <option value="automatizacion">Automatización</option>
+                                <option value="consultoria">Consultoría</option>
+                                <option value="impacto-ambiental">Impacto Ambiental</option>
+                            </select>
+                        </div>
+                        <div class="form-grupo">
+                            <label for="mensaje">Mensaje</label>
+                            <textarea id="mensaje" name="mensaje" rows="4" required placeholder="Cuéntanos sobre tu proyecto..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-enviar">
+                            <i class="fas fa-paper-plane"></i>
+                            Enviar mensaje
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Redes sociales -->
+            <div class="redes-sociales animar-entrada">
+                <h3>Síguenos</h3>
+                <div class="redes-iconos">
+                    <a href="#" class="red-social">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="#" class="red-social">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="red-social">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#" class="red-social">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://youtube.com/@ecosmartconstruccionessas?si=kJF5Mv_6Hu7oFbAm" class="red-social">
+                        <i class="fab fa-youtube"></i>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Sección Nosotros -->
-    <section class="seccion-nosotros" id="nosotros">
-        <div class="contenedor-principal-nosotros">
-            <div class="encabezado-nosotros">
-                <h2 class="titulo-nosotros titulo-animado">Nosotros</h2>
-                <p class="subtitulo-nosotros animar-entrada">Construyendo el futuro con innovación y sostenibilidad</p>
-            </div>
-
-            <!-- Historia Principal -->
-            <div class="contenedor-nosotros">
-                <div class="imagen-nosotros animar-entrada-izquierda">
-                    <img src="../Img/IMG1.jpg" alt="Eco Smart Construcciones - Nosotros">
-                    <div class="overlay-imagen"></div>
-                </div>
-                <div class="texto-nosotros animar-entrada-derecha">
-                    <div class="introduccion-empresa">
-                        <h3 class="animar-entrada delay-1">Líderes en Construcción Sostenible</h3>
-                        <p class="animar-entrada delay-2">En Eco Smart Construcciones, nos dedicamos a transformar el
-                            futuro de la construcción a través de soluciones sostenibles e innovadoras. Nuestro
-                            compromiso con el medio ambiente y la excelencia nos impulsa a crear espacios que no solo
-                            son hermosos y funcionales, sino también respetuosos con nuestro planeta.</p>
-                        <p class="animar-entrada delay-3">Con años de experiencia en el sector, nuestro equipo de
-                            profesionales altamente calificados trabaja incansablemente para ofrecer resultados
-                            excepcionales en cada proyecto, combinando tecnología de vanguardia con prácticas
-                            sostenibles.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Estadísticas -->
-            <div class="estadisticas-empresa">
-                <div class="estadistica-item contador-animado efecto-onda delay-1">
-                    <div class="numero-estadistica">150+</div>
-                    <div class="texto-estadistica">Proyectos Completados</div>
-                </div>
-                <div class="estadistica-item contador-animado efecto-onda delay-2">
-                    <div class="numero-estadistica">10+</div>
-                    <div class="texto-estadistica">Años de Experiencia</div>
-                </div>
-                <div class="estadistica-item contador-animado efecto-onda delay-3">
-                    <div class="numero-estadistica">98%</div>
-                    <div class="texto-estadistica">Clientes Satisfechos</div>
-                </div>
-                <div class="estadistica-item contador-animado efecto-onda delay-4">
-                    <div class="numero-estadistica">25+</div>
-                    <div class="texto-estadistica">Profesionales Expertos</div>
-                </div>
-            </div>
-        </div>
-    </section>
+    
+        
+    
      <script src="../Elementos/Js/animaciones-scroll.js"></script>
     <script src="../Elementos/Js/menu.js"></script>
+    <script src="../Elementos/Js/navegacion-activa.js"></script>
 </body>
 </html>
