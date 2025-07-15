@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos</title>
+    <link rel="stylesheet" href="../Elementos/css/General.css">
+    <link rel="stylesheet" href="../Elementos/css/Contacto.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="shortcut icon" href="../Img/Logo_Color_Fondo_Negro_500x500.png" type="image/x-icon">
+</head>
+<body>
+    <!-- Menú horizontal para desktop -->
+    <nav class="menu-desktop">
+        <div class="nav-container">
+            <div class="logo-nav">
+                <img src="../Img/Logo_Color_Fondo_Blanco_400x150.png" alt="Eco Smart Construcciones"
+                    class="logo-imagen">
+            </div>
+            <ul class="menu-horizontal">
+                <li><a href="Home.html">Inicio</a></li>
+                <li><a href="Nosotros.html">Nosotros</a></li>
+                <li><a href="Servicios.html">Servicios</a></li>
+                <li><a href="Impacto.html">Impacto Ambiental</a></li>
+                <li><a href="Contacto.html">Contacto</a></li>
+            </ul>
+            <button class="btn-postulate-desktop" onclick="abrirFormularioPostulacion()">Postúlate</button>
+        </div>
+    </nav>
+
+    <!-- Barra de navegación móvil -->
+    <nav class="menu-movil">
+        <div class="nav-movil-container">
+            <div class="logo-movil">
+                <img src="../Img/Logo_Color_Fondo_Blanco_400x150.png" alt="Eco Smart Construcciones"
+                    class="logo-imagen-movil">
+            </div>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Menú lateral desplegable para móviles -->
+    <nav class="menu-lateral" id="menuLateral">
+        <div class="menu-contenido">
+            <div class="logo-menu">
+                <img src="../Img/Logo_Color_Fondo_Negro_500x500.png" alt="Eco Smart Construcciones"
+                    class="logo-imagen-lateral">
+            </div>
+            <ul class="menu-lista">
+                <li><a href="Home.html" class="menu-link">Inicio</a></li>
+                <li><a href="Nosotros.html" class="menu-link">Nosotros</a></li>
+                <li><a href="Servicios.html" class="menu-link">Servicios</a></li>
+                <li><a href="Impacto.html" class="menu-link">Impacto Ambiental</a></li>
+                <li><a href="Contacto.html" class="menu-link">Contacto</a></li>
+            </ul>
+            <button class="btn-postulate" onclick="abrirFormularioPostulacion()">Postúlate</button>
+        </div>
+    </nav>
+
+    <!-- Overlay para cerrar el menú móvil -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <script src="../Elementos/Js/menu.js"></script>
+    <script src="../Elementos/Js/navegacion-activa.js"></script>
+</body>
+</html>

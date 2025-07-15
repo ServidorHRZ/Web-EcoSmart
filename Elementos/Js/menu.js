@@ -25,10 +25,13 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.style.overflow = 'auto'; // Restaurar scroll del body
     }
 
-    // Función para limpiar selección activa
+    // Función para limpiar selección activa temporal (solo para navegación interna)
     function limpiarSeleccionActiva() {
-        menuLinks.forEach(link => link.classList.remove('activo'));
-        menuLinksDesktop.forEach(link => link.classList.remove('activo'));
+        // Solo remover clases activas si estamos en Home.html (navegación interna)
+        if (window.location.pathname.includes('Home.html')) {
+            menuLinks.forEach(link => link.classList.remove('activo'));
+            menuLinksDesktop.forEach(link => link.classList.remove('activo'));
+        }
     }
 
     // Event listener para el botón hamburguesa
@@ -82,7 +85,6 @@ document.addEventListener('DOMContentLoaded', function() {
             // Si el enlace apunta a un archivo externo, permitir navegación normal
             if (destino && !destino.startsWith('#')) {
                 // No prevenir el comportamiento por defecto para enlaces externos
-                limpiarSeleccionActiva();
                 return; // Salir de la función para permitir navegación normal
             }
             
