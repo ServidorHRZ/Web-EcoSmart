@@ -46,13 +46,20 @@ document.addEventListener('DOMContentLoaded', function() {
     // Event listeners para los enlaces del menú
     menuLinks.forEach(function(link) {
         link.addEventListener('click', function(e) {
+            const destino = this.getAttribute('href');
+            
+            // Si el enlace apunta a un archivo externo, permitir navegación normal
+            if (destino && !destino.startsWith('#')) {
+                // No prevenir el comportamiento por defecto para enlaces externos
+                cerrarMenu();
+                return; // Salir de la función para permitir navegación normal
+            }
+            
+            // Para enlaces internos (que empiezan con #), prevenir comportamiento por defecto
             e.preventDefault();
             
             // Limpiar selección activa
             limpiarSeleccionActiva();
-            
-            // Obtener el destino del enlace
-            const destino = this.getAttribute('href');
             
             // Cerrar el menú
             cerrarMenu();
@@ -70,13 +77,20 @@ document.addEventListener('DOMContentLoaded', function() {
     // Event listeners para el menú desktop
     menuLinksDesktop.forEach(function(link) {
         link.addEventListener('click', function(e) {
+            const destino = this.getAttribute('href');
+            
+            // Si el enlace apunta a un archivo externo, permitir navegación normal
+            if (destino && !destino.startsWith('#')) {
+                // No prevenir el comportamiento por defecto para enlaces externos
+                limpiarSeleccionActiva();
+                return; // Salir de la función para permitir navegación normal
+            }
+            
+            // Para enlaces internos (que empiezan con #), prevenir comportamiento por defecto
             e.preventDefault();
             
             // Limpiar selección activa
             limpiarSeleccionActiva();
-            
-            // Obtener el destino del enlace
-            const destino = this.getAttribute('href');
             
             // Navegar a la sección
             if (destino && destino.startsWith('#')) {
