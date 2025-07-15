@@ -177,10 +177,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Optimizar para móviles
     optimizarParaMovil();
     
-    // Añadir efecto parallax sutil (opcional)
-    if (window.innerWidth > 768) {
-        efectoParallax();
-    }
+  
     
     console.log('🎨 Animaciones de scroll iniciadas correctamente');
 });

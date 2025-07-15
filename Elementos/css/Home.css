@@ -1065,65 +1065,6 @@
     }
 }
 
-/* ===== CORRECCIÓN DE ESPACIOS EN BLANCO ===== */
-
-/* Eliminar cualquier margen o padding extra que pueda causar espacio blanco */
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    overflow-x: hidden;
-}
-
-/* Asegurar que todas las secciones no tengan espacios extra */
-section {
-    margin: 0;
-    padding: 0;
-}
-
-/* Espaciado específico para cada sección */
-.seccion-nosotros,
-.seccion-servicios,
-.seccion-impacto,
-.seccion-contacto {
-    margin: 0;
-    padding: 0;
-}
-
-/* Asegurar que no haya espacios extra entre secciones */
-.seccion-servicios {
-    margin: 0;
-    padding: 0;
-}
-
-.seccion-impacto {
-    margin: 0;
-    padding: 0;
-}
-
-/* Media queries para la corrección de espacios */
-@media (max-width: 768px) {
-    section,
-    .seccion-nosotros,
-    .seccion-servicios,
-    .seccion-impacto,
-    .seccion-contacto {
-        padding: 0;
-        margin: 0;
-    }
-}
-
-@media (max-width: 480px) {
-    section,
-    .seccion-nosotros,
-    .seccion-servicios,
-    .seccion-impacto,
-    .seccion-contacto {
-        padding: 0;
-        margin: 0;
-    }
-}
-
 
 
 /* ===== SECCIÓN IMPACTO AMBIENTAL ===== */
@@ -1676,7 +1617,7 @@ section {
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 450px) {
     .titulo-contacto {
         font-size: 2.2em;
     }
