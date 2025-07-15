@@ -66,158 +66,163 @@
     <!-- Overlay para cerrar el menú móvil -->
     <div class="menu-overlay" id="menuOverlay"></div>
 
-    <!-- Título de la Sección -->
-    <section class="servicios-header">
-        <div class="servicios-titulo-container">
-            <div class="servicios-icono">
-                <i class="fas fa-tools"></i>
+    <!-- Sección Hero Servicios -->
+    <section class="seccion-hero-servicios">
+        <div class="contenedor-principal">
+            <div class="encabezado-seccion">
+                <h1 class="titulo-seccion titulo-animado">Nuestros Servicios</h1>
+                <p class="subtitulo-seccion animar-entrada">Soluciones integrales en construcción sostenible e inteligente</p>
             </div>
-            <h1 class="servicios-titulo">NUESTROS SERVICIOS</h1>
-            <div class="servicios-linea"></div>
-            <p class="servicios-subtitulo">Soluciones integrales y profesionales para cada etapa de tu proyecto</p>
         </div>
     </section>
 
-    <!-- Sección de Servicios -->
-    <section class="servicios-section">
-        <div class="servicio-card fade-in-up">
-            <div class="servicio-acento"></div>
-            <div class="servicio-imagen-container servicio-img-borde">
-                <img src="../Img/2.jpeg" alt="Obras Civiles" class="servicio-img">
-                <div class="servicio-overlay">
-                    <i class="fas fa-building"></i>
+    <!-- Sección Servicios Principales -->
+    <section class="seccion-servicios-principales">
+        <div class="contenedor-principal">
+            <!-- Servicio 1: Obras Civiles -->
+            <div class="servicio-item animar-entrada-izquierda">
+                <div class="servicio-imagen">
+                    <img src="../Img/1.png" alt="Obras Civiles">
+                    <div class="overlay-imagen"></div>
                 </div>
-            </div>
-            <div class="servicio-divider"></div>
-            <div class="servicio-info">
-                <div class="servicio-info-contenido">
-                    <div class="servicio-titulo-card">
+                <div class="servicio-contenido">
+                    <div class="servicio-icono">
                         <i class="fas fa-building"></i>
-                        <h2>OBRAS CIVILES</h2>
                     </div>
-                    <p>Construcción y supervisión de proyectos de infraestructura, edificaciones y obras públicas con
-                        los más altos estándares de calidad.</p>
-                    <ul>
-                        <li>Infraestructura urbana</li>
-                        <li>Edificaciones comerciales</li>
-                        <li>Proyectos residenciales</li>
+                    <h2>Obras Civiles</h2>
+                    <p class="servicio-descripcion">Construcción y supervisión de proyectos de infraestructura, edificaciones y obras públicas con los más altos estándares de calidad.</p>
+                    <ul class="servicio-caracteristicas">
+                        <li><i class="fas fa-check"></i> Infraestructura urbana</li>
+                        <li><i class="fas fa-check"></i> Edificaciones comerciales</li>
+                        <li><i class="fas fa-check"></i> Proyectos residenciales</li>
                     </ul>
-                </div>
-                <button class="btn btn-secondary btn-solicitar-servicio">
-                    <i class="fas fa-arrow-right"></i>
-                    Solicitar Servicio
-                </button>
-            </div>
-        </div>
-        <div class="servicio-card fade-in-up">
-            <div class="servicio-acento"></div>
-            <div class="servicio-imagen-container servicio-img-borde">
-                <img src="../Img/1.png" alt="Diseño y Planos" class="servicio-img">
-                <div class="servicio-overlay">
-                    <i class="fas fa-drafting-compass"></i>
+                    <button class="btn-solicitar-servicio">Más Información</button>
                 </div>
             </div>
-            <div class="servicio-divider"></div>
-            <div class="servicio-info">
-                <div class="servicio-info-contenido">
-                    <div class="servicio-titulo-card">
+
+            <!-- Servicio 2: Diseño y Planos -->
+            <div class="servicio-item servicio-inverso animar-entrada-derecha">
+                <div class="servicio-imagen">
+                    <img src="../Img/2.jpeg" alt="Diseño y Planos">
+                    <div class="overlay-imagen"></div>
+                </div>
+                <div class="servicio-contenido">
+                    <div class="servicio-icono">
                         <i class="fas fa-drafting-compass"></i>
-                        <h2>DISEÑO Y PLANOS</h2>
                     </div>
-                    <p>Elaboración de planos arquitectónicos, estructurales y de instalaciones con tecnología de última
-                        generación.</p>
-                    <ul>
-                        <li>Modelado 3D avanzado</li>
-                        <li>Cálculos estructurales</li>
-                        <li>Renders fotorrealistas</li>
+                    <h2>Diseño y Planos</h2>
+                    <p class="servicio-descripcion">Elaboración de planos arquitectónicos, estructurales y de instalaciones con tecnología de última generación.</p>
+                    <ul class="servicio-caracteristicas">
+                        <li><i class="fas fa-check"></i> Modelado 3D avanzado</li>
+                        <li><i class="fas fa-check"></i> Cálculos estructurales</li>
+                        <li><i class="fas fa-check"></i> Renders fotorealistas</li>
                     </ul>
-                </div>
-                <button class="btn btn-secondary btn-solicitar-servicio">
-                    <i class="fas fa-arrow-right"></i>
-                    Solicitar Servicio
-                </button>
-            </div>
-        </div>
-        <div class="servicio-card fade-in-up">
-            <div class="servicio-acento"></div>
-            <div class="servicio-imagen-container servicio-img-borde">
-                <img src="../Img/4.webp" alt="Construcciones Inteligentes" class="servicio-img">
-                <div class="servicio-overlay">
-                    <i class="fas fa-home"></i>
+                    <button class="btn-solicitar-servicio">Más Información</button>
                 </div>
             </div>
-            <div class="servicio-divider"></div>
-            <div class="servicio-info">
-                <div class="servicio-info-contenido">
-                    <div class="servicio-titulo-card">
+
+            <!-- Servicio 3: Construcciones Inteligentes -->
+            <div class="servicio-item animar-entrada-izquierda">
+                <div class="servicio-imagen">
+                    <img src="../Img/4.webp" alt="Construcciones Inteligentes">
+                    <div class="overlay-imagen"></div>
+                </div>
+                <div class="servicio-contenido">
+                    <div class="servicio-icono">
                         <i class="fas fa-home"></i>
-                        <h2>CONSTRUCCION INTELIGENTE</h2>
                     </div>
-                    <p>Implementación de sistemas domóticos y automatización para crear espacios inteligentes y
-                        eficientes.</p>
-                    <ul>
-                        <li>Sistemas domóticos</li>
-                        <li>Eficiencia energética</li>
-                        <li>Control inteligente</li>
+                    <h2>Construcciones Inteligentes</h2>
+                    <p class="servicio-descripcion">Implementación de sistemas domóticos y automatización para crear espacios inteligentes y eficientes.</p>
+                    <ul class="servicio-caracteristicas">
+                        <li><i class="fas fa-check"></i> Sistemas domóticos</li>
+                        <li><i class="fas fa-check"></i> Eficiencia energética</li>
+                        <li><i class="fas fa-check"></i> Control inteligente</li>
                     </ul>
-                </div>
-                <button class="btn btn-secondary btn-solicitar-servicio">
-                    <i class="fas fa-arrow-right"></i>
-                    Solicitar Servicio
-                </button>
-            </div>
-        </div>
-        <div class="servicio-card fade-in-up">
-            <div class="servicio-acento"></div>
-            <div class="servicio-imagen-container servicio-img-borde">
-                <img src="../Img/5.webp" alt="Automatización" class="servicio-img">
-                <div class="servicio-overlay">
-                    <i class="fas fa-lightbulb"></i>
+                    <button class="btn-solicitar-servicio">Más Información</button>
                 </div>
             </div>
-            <div class="servicio-divider"></div>
-            <div class="servicio-info">
-                <div class="servicio-info-contenido">
-                    <div class="servicio-titulo-card">
-                        <i class="fas fa-lightbulb"></i>
-                        <h2>AUTOMATIZACIÓN</h2>
-                    </div>
-                    <p>Sistemas de iluminación inteligente, seguridad y control de acceso para mayor confort y
-                        eficiencia energética.</p>
-                    <ul>
-                        <li>Iluminación LED inteligente</li>
-                        <li>Sistemas de seguridad</li>
-                        <li>Control de acceso</li>
-                    </ul>
+
+            <!-- Servicio 4: Automatización -->
+            <div class="servicio-item servicio-inverso animar-entrada-derecha">
+                <div class="servicio-imagen">
+                    <img src="../Img/5.webp" alt="Automatización">
+                    <div class="overlay-imagen"></div>
                 </div>
-                <button class="btn btn-secondary btn-solicitar-servicio">
-                    <i class="fas fa-arrow-right"></i>
-                    Solicitar Servicio
-                </button>
+                <div class="servicio-contenido">
+                    <div class="servicio-icono">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <h2>Automatización</h2>
+                    <p class="servicio-descripcion">Sistemas de iluminación inteligente, seguridad y control de acceso para mayor confort y eficiencia energética.</p>
+                    <ul class="servicio-caracteristicas">
+                        <li><i class="fas fa-check"></i> Iluminación LED inteligente</li>
+                        <li><i class="fas fa-check"></i> Sistemas de seguridad</li>
+                        <li><i class="fas fa-check"></i> Control de acceso</li>
+                    </ul>
+                    <button class="btn-solicitar-servicio">Más Información</button>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Sección de Redes Sociales -->
-    <section class="redes-sociales-section">
-        <div class="redes-sociales-container">
-            <h2 class="redes-sociales-titulo">Síguenos</h2>
-            <div class="redes-sociales-grid">
-                <a href="#" class="red-social-link" aria-label="Facebook">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="#" class="red-social-link" aria-label="Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="#" class="red-social-link" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="#" class="red-social-link" aria-label="Twitter">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="https://youtube.com/@ecosmartconstruccionessas?si=kJF5Mv_6Hu7oFbAm" class="red-social-link" aria-label="YouTube">
-                    <i class="fab fa-youtube"></i>
-                </a>
+    <!-- Sección Proceso de Trabajo -->
+    <section class="seccion-proceso">
+        <div class="contenedor-principal">
+            <div class="encabezado-seccion">
+                <h2 class="titulo-seccion titulo-animado">Nuestro Proceso</h2>
+                <p class="subtitulo-seccion animar-entrada">Metodología probada para garantizar el éxito de cada proyecto</p>
+            </div>
+            
+            <div class="grid-proceso">
+                <div class="proceso-item card-animacion efecto-onda delay-1">
+                    <div class="proceso-numero">01</div>
+                    <div class="proceso-icono">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h4>Consulta Inicial</h4>
+                    <p>Analizamos tus necesidades y objetivos para diseñar la solución perfecta.</p>
+                </div>
+                
+                <div class="proceso-item card-animacion efecto-onda delay-2">
+                    <div class="proceso-numero">02</div>
+                    <div class="proceso-icono">
+                        <i class="fas fa-drafting-compass"></i>
+                    </div>
+                    <h4>Diseño y Planificación</h4>
+                    <p>Creamos un plan detallado que integra sostenibilidad e innovación tecnológica.</p>
+                </div>
+                
+                <div class="proceso-item card-animacion efecto-onda delay-3">
+                    <div class="proceso-numero">03</div>
+                    <div class="proceso-icono">
+                        <i class="fas fa-hard-hat"></i>
+                    </div>
+                    <h4>Ejecución</h4>
+                    <p>Implementamos el proyecto con los más altos estándares de calidad y sostenibilidad.</p>
+                </div>
+                
+                <div class="proceso-item card-animacion efecto-onda delay-4">
+                    <div class="proceso-numero">04</div>
+                    <div class="proceso-icono">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h4>Entrega y Seguimiento</h4>
+                    <p>Entregamos tu proyecto y brindamos soporte continuo para garantizar tu satisfacción.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección CTA -->
+    <section class="seccion-cta-servicios">
+        <div class="contenedor-principal">
+            <div class="cta-contenido animar-entrada">
+                <h3>¿Listo para transformar tu proyecto?</h3>
+                <p>Contáctanos hoy y descubre cómo podemos hacer realidad tu visión con nuestros servicios especializados</p>
+                <div class="cta-botones">
+                    <button class="btn-cta-principal" onclick="window.location.href='Contacto.html'">Solicitar Cotización</button>
+                    <button class="btn-cta-secundario" onclick="abrirFormularioPostulacion()">Únete al Equipo</button>
+                </div>
             </div>
         </div>
     </section>
@@ -225,6 +230,7 @@
     <script src="../Elementos/Js/menu.js"></script>
     <script src="../Elementos/Js/navegacion-activa.js"></script>
     <script src="../Elementos/Js/Servicios.js"></script>
+    <script src="../Elementos/Js/animaciones-scroll.js"></script>
 </body>
 
 </html>
