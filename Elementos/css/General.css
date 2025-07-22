@@ -9,7 +9,7 @@
     --gris-claro: #F5F5F5;
     --gris-medio: #9E9E9E;
     --gris-oscuro: #424242;
-    --negro: #212121;
+    --negro: #000000;
     --blanco: #FFFFFF;
 }
 
@@ -172,11 +172,13 @@ body {
     display: block;
 }
 
+/* --- MODIFICACIÓN PARA MENÚ ESTILO AMD --- */
 .nav-container {
     max-width: 1400px;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
+    justify-content: flex-start; /* Alinear todo a la izquierda */
     align-items: center;
     padding: 10px 30px;
 }
@@ -184,6 +186,7 @@ body {
 .logo-nav {
     display: flex;
     align-items: center;
+    margin-right: 18px; /* Menor separación con el menú */
 }
 
 .logo-imagen {
@@ -199,16 +202,18 @@ body {
     list-style: none;
     margin: 0;
     padding: 0;
-    gap: 35px;
+    gap: 18px; /* Menor espacio entre opciones */
     align-items: center;
+    flex: 0 1 auto;
 }
 
+/* --- AJUSTE DE LETRA Y EFECTO SUBRAYADO ANIMADO EN MENÚ --- */
 .menu-horizontal a {
     color: var(--blanco);
     text-decoration: none;
-    font-size: 17px;
-    font-weight: 600;
-    padding: 12px 18px;
+    font-size: 15px;
+    font-weight: 400;
+    padding: 10px 10px;
     border-radius: 8px;
     transition: all 0.3s ease;
     position: relative;
@@ -218,33 +223,27 @@ body {
 .menu-horizontal a::after {
     content: '';
     position: absolute;
-    bottom: 5px;
-    left: 50%;
-    width: 0;
+    left: 0;
+    right: 0;
+    bottom: 2px;
     height: 2px;
     background-color: var(--amarillo-eco);
-    transition: all 0.3s ease;
-    transform: translateX(-50%);
+    width: 0;
+    transition: width 0.3s cubic-bezier(0.4,0,0.2,1);
+    transform: none;
 }
 
-.menu-horizontal a:hover {
-    color: var(--amarillo-eco);
-    background-color: rgba(255, 255, 255, 0.1);
+.menu-horizontal a:hover::after,
+.menu-horizontal a.activo::after {
+    width: 100%;
 }
 
-.menu-horizontal a:hover::after {
-    width: 80%;
-}
-
-/* Estilos para el enlace activo */
+.menu-horizontal a:hover,
 .menu-horizontal a.activo {
     color: var(--amarillo-eco);
     background-color: rgba(255, 255, 255, 0.1);
 }
-
-.menu-horizontal a.activo::after {
-    width: 80%;
-}
+/* --- FIN AJUSTE LETRA Y EFECTO SUBRAYADO --- */
 
 .btn-postulate-desktop {
     background: linear-gradient(45deg, var(--amarillo-eco), var(--naranja-acento));
@@ -259,7 +258,7 @@ body {
     text-transform: uppercase;
     letter-spacing: 1px;
     box-shadow: 0 4px 12px rgba(255, 193, 7, 0.4);
-    margin-left: 20px;
+    margin-left: auto; /* Empuja el botón a la derecha */
 }
 
 .btn-postulate-desktop:hover {
@@ -567,17 +566,98 @@ body {
     }
     
     .menu-horizontal {
-        gap: 40px;
+        gap: 22px;
     }
     
     .menu-horizontal a {
         font-size: 18px;
-        padding: 14px 20px;
+        padding: 12px 12px;
     }
     
     .btn-postulate-desktop {
         padding: 16px 35px;
         font-size: 16px;
-        margin-left: 25px;
+        margin-left: auto;
     }
 }
+/* --- FIN MODIFICACIÓN MENÚ ESTILO AMD --- */
+
+/* --- LOGO MÁS A LA IZQUIERDA --- */
+.logo-nav {
+    margin-left: 0;
+}
+.menu-desktop .nav-container {
+    padding-left: 10px;
+}
+/* --- FIN LOGO MÁS A LA IZQUIERDA --- */
+
+/* --- BOTÓN WHATSAPP AMARILLO CON HOVER NEGRO --- */
+.btn-whatsapp-desktop {
+    display: flex;
+    align-items: center;
+    background: var(--amarillo-eco);
+    color: var(--negro);
+    border: 2px solid var(--amarillo-eco);
+    padding: 10px 22px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 25px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-left: auto;
+    transition: background 0.2s, color 0.2s;
+    gap: 8px;
+}
+.btn-whatsapp-desktop i {
+    font-size: 20px;
+    color: var(--negro);
+    margin-right: 6px;
+    transition: color 0.2s;
+}
+
+.btn-whatsapp-movil {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--amarillo-eco);
+    color: var(--negro);
+    border: 2px solid var(--amarillo-eco);
+    padding: 12px 20px;
+    font-size: 17px;
+    font-weight: 600;
+    border-radius: 25px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: auto;
+    margin-bottom: 20px;
+    gap: 8px;
+    width: 100%;
+    transition: background 0.2s, color 0.2s;
+}
+.btn-whatsapp-movil i {
+    font-size: 22px;
+    color: var(--negro);
+    margin-right: 8px;
+    transition: color 0.2s;
+}
+.btn-whatsapp-movil:hover, .btn-whatsapp-movil:active {
+    background: var(--negro);
+    color: var(--amarillo-eco);
+    border-color: var(--negro);
+}
+.btn-whatsapp-movil:hover i, .btn-whatsapp-movil:active i {
+    color: var(--amarillo-eco);
+}
+/* --- FIN BOTÓN WHATSAPP AMARILLO --- */
+
+/* --- MENÚ FONDO NEGRO PURO --- */
+.menu-desktop {
+    background: var(--negro) !important;
+}
+.menu-movil {
+    background: var(--negro) !important;
+}
+.menu-lateral {
+    background: var(--negro) !important;
+}
+/* --- FIN MENÚ FONDO NEGRO --- */

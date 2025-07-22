@@ -152,18 +152,20 @@
     <nav class="menu-desktop">
         <div class="nav-container">
             <div class="logo-nav">
+                <a href="Home.html">
                 <img src="../Img/Logo_Color_Fondo_Blanco_400x150.png" alt="Eco Smart Construcciones"
                     class="logo-imagen">
+                </a>
             </div>
             <ul class="menu-horizontal">
-                <li><a href="Home.html">Inicio</a></li>
                 <li><a href="Nosotros.html">Nosotros</a></li>
                 <li><a href="Servicios.html">Servicios</a></li>
-                <li><a href="Productos.html">Productos</a></li>
-                <li><a href="Impacto.html">Impacto Ambiental</a></li>
+                <li><a href="Postulacion.html">Postúlate</a></li>
                 <li><a href="Contacto.html">Contacto</a></li>
             </ul>
-            <button class="btn-postulate-desktop" onclick="abrirFormularioPostulacion()">Postúlate</button>
+            <a class="btn-whatsapp-desktop" href="https://wa.me/573224657363" target="_blank">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
         </div>
     </nav>
 
@@ -193,11 +195,11 @@
                 <li><a href="Home.html" class="menu-link">Inicio</a></li>
                 <li><a href="Nosotros.html" class="menu-link">Nosotros</a></li>
                 <li><a href="Servicios.html" class="menu-link">Servicios</a></li>
-                <li><a href="Productos.html" class="menu-link">Productos</a></li>
-                <li><a href="Impacto.html" class="menu-link">Impacto Ambiental</a></li>
                 <li><a href="Contacto.html" class="menu-link">Contacto</a></li>
             </ul>
-            <button class="btn-postulate" onclick="abrirFormularioPostulacion()">Postúlate</button>
+            <a class="btn-whatsapp-movil" href="https://wa.me/573224657363" target="_blank">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
         </div>
     </nav>
 
@@ -206,18 +208,17 @@
 
         <!-- Carrusel Principal -->
         <section class="carrusel-principal" id="inicio">
-            <img src="../Img/fondo2.png" alt="Fondo" class="carrusel-background">
-            <div class="carrusel-contenedor">
-                <div class="carrusel-wrapper">
-                    <div class="carrusel-slides">
-                        <!-- Slide 1 - Video -->
-                        <div class="slide activo">
-                            <video class="slide-video" autoplay muted loop>
-                                <source src="../Img/Video_Principal.mp4" type="video/mp4">
-                                Tu navegador no soporta el elemento de video.
-                            </video>
-                        </div>
-                    </div>
+            <div class="carrusel-hero-flex">
+                <div class="carrusel-hero-texto">
+                    <h1 class="carrusel-hero-titulo">Tu socio de confianza<br>para la construcción sostenible</h1>
+                    <p class="carrusel-hero-subtitulo">Acelera tus proyectos con soluciones eco-inteligentes, innovación y compromiso ambiental.</p>
+                    <a href="#contacto" class="carrusel-hero-boton">Solicita tu cotización</a>
+                </div>
+                <div class="carrusel-hero-video">
+                    <video class="slide-video" autoplay muted loop>
+                        <source src="../Img/Video_Principal.mp4" type="video/mp4">
+                        Tu navegador no soporta el elemento de video.
+                    </video>
                 </div>
             </div>
         </section>
