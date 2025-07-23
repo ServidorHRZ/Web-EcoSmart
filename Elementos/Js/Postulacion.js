@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     setupModalEvents();
     suavizarScroll();
     efectosHoverAvanzados();
-    mostrarProgresoScroll();
+    // mostrarProgresoScroll(); // Removido: línea de progreso de scroll
     lazyLoadImagenes();
     optimizarMovil();
     validarNavegador();
