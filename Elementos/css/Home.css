@@ -1,33 +1,26 @@
 /* ===== CARRUSEL PRINCIPAL ===== */
 .carrusel-principal {
     width: 100%;
-    padding: 20px;
+    padding: 0;
     margin-top: 80px; /* Espacio para el menú fijo */
     position: relative;
     background: #000000;
-}
-
-.carrusel-background {
-    display: none; /* Ocultamos la imagen de fondo ya que usaremos fondo negro */
+    overflow: hidden;
 }
 
 .carrusel-contenedor {
-    max-width: 1500px;
-    margin: 0 auto;
+    width: 100%;
     position: relative;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: none;
-    background: #000000;
-    border: none;
+    height: 100vh;
+    min-height: 600px;
+    max-height: 900px;
 }
 
 .carrusel-wrapper {
     width: 100%;
-    height: 830px;
+    height: 100%;
     position: relative;
     overflow: hidden;
-    background: #000000;
 }
 
 .carrusel-slides {
@@ -43,7 +36,7 @@
     width: 100%;
     height: 100%;
     opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity 1s ease-in-out;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -54,18 +47,11 @@
 }
 
 .slide-background {
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-
-.background-image {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
     z-index: 1;
 }
 
@@ -73,22 +59,221 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
 }
 
 .slide-imagen {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
+}
+
+.slide-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.7) 0%,
+        rgba(0, 0, 0, 0.4) 50%,
+        rgba(0, 0, 0, 0.6) 100%
+    );
+    z-index: 2;
+}
+
+.slide-contenido {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    color: #ffffff;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    animation: slideInUp 1s ease-out;
+}
+
+.slide-titulo {
+    font-size: 4.5em;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    line-height: 1.1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    color: #FFD700;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.slide-subtitulo {
+    font-size: 1.4em;
+    margin-bottom: 40px;
+    line-height: 1.6;
+    color: #e0e0e0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+}
+
+.slide-boton {
+    display: inline-block;
+    background: linear-gradient(45deg, #FFD700, #FFA500);
+    color: #000;
+    padding: 18px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+    border: 3px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.slide-boton::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.slide-boton:hover::before {
+    left: 100%;
+}
+
+.slide-boton:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(255, 215, 0, 0.5);
+    background: linear-gradient(45deg, #FFA500, #FFD700);
 }
 
 /* Botones de navegación */
 .carrusel-btn {
-    display: none; /* Ocultamos los botones de navegación */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 215, 0, 0.9);
+    color: #000;
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 4;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.carrusel-prev {
+    left: 30px;
+}
+
+.carrusel-next {
+    right: 30px;
+}
+
+.carrusel-btn:hover {
+    background: #FFD700;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 12px 35px rgba(255, 215, 0, 0.4);
 }
 
 /* Indicadores */
 .carrusel-indicadores {
-    display: none; /* Ocultamos los indicadores */
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+    z-index: 4;
+}
+
+.indicador {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.indicador.activo {
+    background: #FFD700;
+    border-color: #FFA500;
+    transform: scale(1.2);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+}
+
+.indicador:hover {
+    background: rgba(255, 215, 0, 0.7);
+    transform: scale(1.1);
+}
+
+/* Animaciones */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes gradientShift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Efectos especiales para el video */
+.slide[data-tipo="video"] .slide-overlay {
+    background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.6) 0%,
+        rgba(0, 0, 0, 0.3) 50%,
+        rgba(0, 0, 0, 0.5) 100%
+    );
+}
+
+/* Efectos especiales para las imágenes */
+.slide[data-tipo="imagen"] .slide-overlay {
+    background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(0, 0, 0, 0.5) 50%,
+        rgba(0, 0, 0, 0.7) 100%
+    );
 }
 
 /* ===== RESPONSIVE DESIGN ===== */
@@ -96,49 +281,136 @@
 /* Tablets */
 @media (max-width: 768px) {
     .carrusel-principal {
-        padding: 15px;
         margin-top: 70px;
-        background-color: #000000;
     }
     
     .carrusel-contenedor {
-        box-shadow: none;
-        background: #000000;
-        border: none;
+        height: 70vh;
+        min-height: 500px;
+        max-height: 700px;
     }
     
-    .carrusel-wrapper {
-        height: 50vh;
-        min-height: 350px;
+    .slide-contenido {
+        padding: 0 30px;
+    }
+    
+    .slide-titulo {
+        font-size: 3.2em;
+        margin-bottom: 25px;
+        letter-spacing: 2px;
+        color: #FFD700;
+        font-family: 'Montserrat', sans-serif;
+    }
+    
+    .slide-subtitulo {
+        font-size: 1.2em;
+        margin-bottom: 35px;
+    }
+    
+    .slide-boton {
+        padding: 15px 35px;
+        font-size: 1em;
+        letter-spacing: 1.5px;
+    }
+    
+    .carrusel-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3em;
+    }
+    
+    .carrusel-prev {
+        left: 20px;
+    }
+    
+    .carrusel-next {
+        right: 20px;
+    }
+    
+    .indicador {
+        width: 12px;
+        height: 12px;
+    }
+    
+    .carrusel-indicadores {
+        bottom: 25px;
+        gap: 12px;
     }
 }
 
 /* Móviles */
 @media (max-width: 480px) {
     .carrusel-principal {
-        padding: 10px;
         margin-top: 60px;
-        background-color: #000000;
     }
     
     .carrusel-contenedor {
-        border-radius: 10px;
-        box-shadow: none;
-        background: #000000;
-        border: none;
+        height: 35vh;
+        min-height: 280px;
+        max-height: 350px;
     }
     
-    .carrusel-wrapper {
-        height: 20vh;
-        min-height: 250px;
+    .slide-contenido {
+        padding: 0 20px;
+    }
+    
+    .slide-titulo {
+        font-size: 1.6em;
+        margin-bottom: 20px;
+        letter-spacing: 1px;
+        line-height: 1.2;
+        color: #FFD700;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+    }
+    
+    /* Ocultar descripción en móviles */
+    .slide-subtitulo {
+        display: none;
+    }
+    
+    /* Ocultar botón en móviles */
+    .slide-boton {
+        display: none;
+    }
+    
+    /* Ocultar flechas en móviles */
+    .carrusel-btn {
+        display: none;
+    }
+    
+    /* Ocultar indicadores en móviles */
+    .carrusel-indicadores {
+        display: none;
     }
 }
 
 /* Pantallas muy pequeñas */
 @media (max-width: 320px) {
-    .carrusel-wrapper {
-        height: 35vh;
-        min-height: 200px;
+    .carrusel-contenedor {
+        height: 30vh;
+        min-height: 250px;
+    }
+    
+    .slide-titulo {
+        font-size: 1.4em;
+        margin-bottom: 15px;
+        color: #FFD700;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+    }
+    
+    /* Mantener ocultos descripción, botón e indicadores */
+    .slide-subtitulo {
+        display: none;
+    }
+    
+    .slide-boton {
+        display: none;
+    }
+    
+    .carrusel-indicadores {
+        display: none;
     }
 }
 
@@ -1084,8 +1356,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 25% 25%, rgba(76, 175, 80, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 75% 75%, rgba(76, 175, 80, 0.05) 0%, transparent 50%);
+    background: radial-gradient(circle at 25% 25%, rgba(76, 175, 80, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(76, 175, 80, 0.02) 0%, transparent 50%);
     pointer-events: none;
 }
 
@@ -1133,9 +1405,9 @@
     text-align: center;
     margin-bottom: 60px;
     padding: 40px;
-    background: rgba(76, 175, 80, 0.05);
+    background: rgba(76, 175, 80, 0.02);
     border-radius: 20px;
-    border: 1px solid rgba(76, 175, 80, 0.2);
+    border: 1px solid rgba(76, 175, 80, 0.1);
 }
 
 .intro-impacto h3 {
@@ -1155,138 +1427,251 @@
 
 .estadisticas-ambientales {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
     margin: 80px 0;
 }
 
 .stat-ambiental {
     text-align: center;
-    padding: 40px 20px;
-    background: rgba(76, 175, 80, 0.05);
+    padding: 50px 30px;
+    background: rgba(76, 175, 80, 0.02);
     border-radius: 20px;
-    border: 1px solid rgba(76, 175, 80, 0.2);
-    transition: all 0.3s ease;
+    border: 1px solid rgba(76, 175, 80, 0.1);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-ambiental::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #4CAF50, #66BB6A);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.stat-ambiental:hover::before {
+    transform: scaleX(1);
 }
 
 .stat-ambiental:hover {
-    transform: translateY(-10px);
-    background: rgba(76, 175, 80, 0.1);
-    border-color: #4CAF50;
+    transform: translateY(-15px);
+    background: rgba(76, 175, 80, 0.05);
+    border-color: rgba(76, 175, 80, 0.3);
+    box-shadow: 0 25px 50px rgba(76, 175, 80, 0.1);
 }
 
 .stat-icono {
-    font-size: 3em;
+    font-size: 3.5em;
     color: #4CAF50;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    transition: all 0.3s ease;
+}
+
+.stat-ambiental:hover .stat-icono {
+    transform: scale(1.1);
+    color: #66BB6A;
 }
 
 .stat-numero {
-    font-size: 3.5em;
+    font-size: 4em;
     font-weight: 700;
     color: #4CAF50;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    line-height: 1;
+    transition: all 0.3s ease;
+}
+
+.stat-ambiental:hover .stat-numero {
+    color: #66BB6A;
 }
 
 .stat-texto {
-    font-size: 1.1em;
+    font-size: 1.2em;
     color: #cccccc;
     text-transform: uppercase;
     letter-spacing: 1px;
+    margin-bottom: 8px;
+    font-weight: 600;
 }
 
-.practicas-sostenibles {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin: 60px 0;
-}
-
-.practica-item {
-    background: rgba(255, 255, 255, 0.02);
-    padding: 40px;
-    border-radius: 20px;
-    text-align: center;
-    border: 1px solid rgba(76, 175, 80, 0.1);
-    transition: all 0.3s ease;
-}
-
-.practica-item:hover {
-    transform: translateY(-10px);
-    border-color: #4CAF50;
-    box-shadow: 0 20px 40px rgba(76, 175, 80, 0.1);
-}
-
-.practica-icono {
-    font-size: 3em;
-    color: #4CAF50;
-    margin-bottom: 25px;
-}
-
-.practica-item h4 {
-    font-size: 1.4em;
-    color: #4CAF50;
+.stat-unidad {
+    font-size: 0.9em;
+    color: #888888;
+    font-style: italic;
+    text-transform: none;
+    letter-spacing: 0;
     margin-bottom: 15px;
-    font-weight: 600;
 }
 
-.practica-item p {
-    color: #e0e0e0;
-    line-height: 1.6;
-    font-size: 1.05em;
+.stat-descripcion {
+    font-size: 0.85em;
+    color: #aaaaaa;
+    line-height: 1.5;
+    text-align: left;
+    padding: 15px 0 0 0;
+    border-top: 1px solid rgba(76, 175, 80, 0.1);
+    margin-top: 15px;
+    text-transform: none;
+    letter-spacing: 0;
+    font-style: normal;
 }
 
-.certificaciones-ambientales {
+/* Mensaje de actualización */
+.actualizacion-datos {
     text-align: center;
-    margin-top: 80px;
-    padding: 40px;
-    background: rgba(76, 175, 80, 0.05);
-    border-radius: 20px;
-    border: 1px solid rgba(76, 175, 80, 0.2);
-}
-
-.certificaciones-ambientales h3 {
-    font-size: 2.2em;
-    color: #4CAF50;
-    margin-bottom: 40px;
-    font-weight: 600;
-}
-
-.certificaciones-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 30px;
-}
-
-.certificacion-item {
-    background: rgba(255, 255, 255, 0.02);
+    margin-top: 60px;
     padding: 30px;
+    background: rgba(255, 255, 255, 0.02);
     border-radius: 15px;
     border: 1px solid rgba(76, 175, 80, 0.1);
-    transition: all 0.3s ease;
 }
 
-.certificacion-item:hover {
-    transform: translateY(-5px);
-    border-color: #4CAF50;
-}
-
-.cert-icono {
-    font-size: 2.5em;
+.actualizacion-datos p {
     color: #4CAF50;
-    margin-bottom: 15px;
-}
-
-.certificacion-item h5 {
-    font-size: 1.2em;
-    color: #4CAF50;
+    font-size: 1.1em;
     margin-bottom: 10px;
-    font-weight: 600;
+    font-weight: 500;
 }
 
-.certificacion-item p {
-    color: #cccccc;
-    font-size: 0.95em;
+.actualizacion-datos i {
+    margin-right: 8px;
+    animation: spin 2s linear infinite;
+}
+
+.actualizacion-datos small {
+    color: #888888;
+    font-size: 0.9em;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Responsive para impacto ambiental */
+@media (max-width: 768px) {
+    .seccion-impacto {
+        padding: 60px 15px;
+    }
+    
+    .titulo-impacto {
+        font-size: 2.8em;
+    }
+    
+    .estadisticas-ambientales {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin: 60px 0;
+    }
+    
+    .stat-ambiental {
+        padding: 40px 25px;
+    }
+    
+    .stat-numero {
+        font-size: 3.5em;
+    }
+    
+    .intro-impacto {
+        padding: 30px 20px;
+        margin-bottom: 50px;
+    }
+    
+    .stat-descripcion {
+        font-size: 0.8em;
+        text-align: center;
+        padding: 10px 0 0 0;
+    }
+    
+    .intro-impacto h3 {
+        font-size: 1.8em;
+    }
+    
+    .intro-impacto p {
+        font-size: 1.1em;
+    }
+    
+    .actualizacion-datos {
+        padding: 25px 20px;
+        margin-top: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .seccion-impacto {
+        padding: 40px 15px;
+    }
+    
+    .titulo-impacto {
+        font-size: 2.2em;
+        letter-spacing: 2px;
+    }
+    
+    .subtitulo-impacto {
+        font-size: 1.1em;
+    }
+    
+    .estadisticas-ambientales {
+        gap: 25px;
+        margin: 50px 0;
+    }
+    
+    .stat-ambiental {
+        padding: 35px 20px;
+    }
+    
+    .stat-icono {
+        font-size: 3em;
+        margin-bottom: 20px;
+    }
+    
+    .stat-numero {
+        font-size: 3em;
+        margin-bottom: 12px;
+    }
+    
+    .stat-texto {
+        font-size: 1.1em;
+    }
+    
+    .stat-unidad {
+        font-size: 0.85em;
+    }
+    
+    .stat-descripcion {
+        font-size: 0.75em;
+        text-align: center;
+        padding: 8px 0 0 0;
+        margin-top: 10px;
+    }
+    
+    .intro-impacto {
+        padding: 25px 15px;
+        margin-bottom: 40px;
+    }
+    
+    .intro-impacto h3 {
+        font-size: 1.6em;
+    }
+    
+    .intro-impacto p {
+        font-size: 1.05em;
+    }
+    
+    .actualizacion-datos {
+        padding: 20px 15px;
+        margin-top: 40px;
+    }
+    
+    .actualizacion-datos p {
+        font-size: 1em;
+    }
 }
 
 /* ===== SECCIÓN CONTACTO ===== */
