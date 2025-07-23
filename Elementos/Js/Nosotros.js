@@ -230,10 +230,20 @@ function inicializarTimeline() {
 function activarTimelineItem(elemento) {
     elemento.classList.add('timeline-activo');
     
-    // Agregar efecto de pulso al punto de la timeline
-    const punto = elemento.querySelector('::before');
-    if (punto) {
-        punto.style.animation = 'pulso 1s ease-out';
+    // Agregar efecto de pulso al icono de la timeline
+    const icono = elemento.querySelector('.timeline-icon');
+    if (icono) {
+        // Crear animación de pulso personalizada
+        icono.style.animation = 'pulsoTimeline 1.2s ease-out';
+        
+        // Agregar clase temporal para efectos adicionales
+        icono.classList.add('timeline-icon-activo');
+        
+        // Remover la clase después de la animación
+        setTimeout(() => {
+            icono.classList.remove('timeline-icon-activo');
+            icono.style.animation = '';
+        }, 1200);
     }
 }
 
@@ -421,6 +431,43 @@ function agregarAnimacionesCSS() {
             }
         }
         
+        @keyframes pulsoTimeline {
+            0% {
+                transform: translateY(-50%) scale(1);
+                box-shadow: 
+                    0 0 0 4px #000000,
+                    0 8px 20px rgba(255, 215, 0, 0.3),
+                    inset 0 2px 4px rgba(255, 255, 255, 0.2);
+            }
+            30% {
+                transform: translateY(-50%) scale(1.15);
+                box-shadow: 
+                    0 0 0 4px #000000,
+                    0 0 0 8px rgba(255, 215, 0, 0.4),
+                    0 12px 30px rgba(255, 215, 0, 0.5),
+                    inset 0 2px 4px rgba(255, 255, 255, 0.3);
+            }
+            60% {
+                transform: translateY(-50%) scale(1.05) rotate(5deg);
+                box-shadow: 
+                    0 0 0 4px #000000,
+                    0 0 0 12px rgba(255, 215, 0, 0.2),
+                    0 15px 35px rgba(255, 215, 0, 0.4),
+                    inset 0 2px 4px rgba(255, 255, 255, 0.2);
+            }
+            100% {
+                transform: translateY(-50%) scale(1);
+                box-shadow: 
+                    0 0 0 4px #000000,
+                    0 8px 20px rgba(255, 215, 0, 0.3),
+                    inset 0 2px 4px rgba(255, 255, 255, 0.2);
+            }
+        }
+        
+        .timeline-icon-activo {
+            background: linear-gradient(135deg, #FFED4E 0%, #FFD700 50%, #FFA500 100%) !important;
+        }
+        
         .timeline-activo::before {
             animation: pulso 1s ease-out;
         }
@@ -437,6 +484,26 @@ function agregarAnimacionesCSS() {
             100% {
                 opacity: 1;
                 transform: translateY(0) scale(1);
+            }
+        }
+        
+        /* Animación de entrada para iconos de timeline */
+        .timeline-icon {
+            animation: entradaIconoTimeline 0.8s ease-out;
+        }
+        
+        @keyframes entradaIconoTimeline {
+            0% {
+                opacity: 0;
+                transform: translateY(-50%) scale(0) rotate(-180deg);
+            }
+            60% {
+                opacity: 1;
+                transform: translateY(-50%) scale(1.1) rotate(10deg);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(-50%) scale(1) rotate(0deg);
             }
         }
     `;

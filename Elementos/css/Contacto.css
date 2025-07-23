@@ -1,6 +1,6 @@
 /* ===== SECCIÓN CONTACTO ===== */
 .seccion-contacto {
-    background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+    background: #000000;
     padding: 100px 20px;
     color: #ffffff;
     position: relative;
@@ -14,8 +14,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 80% 20%, rgba(255, 215, 0, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.05) 0%, transparent 50%);
+    background: transparent;
     pointer-events: none;
 }
 

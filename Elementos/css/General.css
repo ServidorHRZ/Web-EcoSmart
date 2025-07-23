@@ -186,7 +186,7 @@ body {
 .logo-nav {
     display: flex;
     align-items: center;
-    margin-right: 18px; /* Menor separación con el menú */
+    margin-right: 28px; /* Pequeño espacio adicional entre logo y menú */
 }
 
 .logo-imagen {
@@ -613,6 +613,14 @@ body {
     color: var(--negro);
     margin-right: 6px;
     transition: color 0.2s;
+}
+.btn-whatsapp-desktop:hover, .btn-whatsapp-desktop:active {
+    background: var(--negro);
+    color: var(--amarillo-eco);
+    border-color: var(--negro);
+}
+.btn-whatsapp-desktop:hover i, .btn-whatsapp-desktop:active i {
+    color: var(--amarillo-eco);
 }
 
 .btn-whatsapp-movil {

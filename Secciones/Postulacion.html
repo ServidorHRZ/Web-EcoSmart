@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postúlate - Eco Smart Construcciones</title>
+    <link rel="stylesheet" href="../Elementos/css/General.css">
+    <link rel="stylesheet" href="../Elementos/css/Postulacion.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="shortcut icon" href="../Img/Logo_Color_Fondo_Negro_500x500.png" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Menú horizontal para desktop -->
+    <nav class="menu-desktop">
+        <div class="nav-container">
+            <div class="logo-nav">
+                <a href="Home.html">
+                    <img src="../Img/Logo_Color_Fondo_Blanco_400x150.png" alt="Eco Smart Construcciones"
+                        class="logo-imagen">
+                </a>
+            </div>
+            <ul class="menu-horizontal">
+                <li><a href="Nosotros.html">Nosotros</a></li>
+                <li><a href="Servicios.html">Servicios</a></li>
+                <li><a href="Postulacion.html">Postúlate</a></li>
+                <li><a href="Contacto.html">Contacto</a></li>
+            </ul>
+            <a class="btn-whatsapp-desktop" href="https://wa.me/573224657363" target="_blank">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+        </div>
+    </nav>
+
+    <!-- Barra de navegación móvil -->
+    <nav class="menu-movil">
+        <div class="nav-movil-container">
+            <div class="logo-movil">
+                <a href="Home.html">
+                    <img src="../Img/Logo_Color_Fondo_Blanco_400x150.png" alt="Eco Smart Construcciones"
+                        class="logo-imagen-movil">
+                </a>
+            </div>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Menú lateral desplegable para móviles -->
+    <nav class="menu-lateral" id="menuLateral">
+        <div class="menu-contenido">
+            <div class="logo-menu">
+                <a href="Home.html">
+                    <img src="../Img/Logo_Color_Fondo_Negro_500x500.png" alt="Eco Smart Construcciones"
+                        class="logo-imagen-lateral">
+                </a>
+            </div>
+            <ul class="menu-lista">
+                <li><a href="Nosotros.html" class="menu-link">Nosotros</a></li>
+                <li><a href="Servicios.html" class="menu-link">Servicios</a></li>
+                <li><a href="Postulacion.html" class="menu-link">Postúlate</a></li>
+                <li><a href="Contacto.html" class="menu-link">Contacto</a></li>
+            </ul>
+            <a class="btn-whatsapp-movil" href="https://wa.me/573224657363" target="_blank">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+        </div>
+    </nav>
+
+    <!-- Overlay para cerrar el menú móvil -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <!-- Sección Hero Postulación -->
+    <section class="seccion-hero-postulacion">
+        <div class="contenedor-principal">
+            <div class="encabezado-seccion">
+                <h1 class="titulo-seccion titulo-animado">Únete a Nuestro Equipo</h1>
+                <p class="subtitulo-seccion animar-entrada">Forma parte de la construcción del futuro sostenible</p>
+                <p class="descripcion-empresa animar-entrada">En Eco Smart Construcciones buscamos profesionales comprometidos con la innovación, la calidad y la sostenibilidad ambiental.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Formulario de Postulación -->
+    <section class="seccion-formulario-postulacion">
+        <div class="contenedor-principal">
+            <div class="formulario-container animar-entrada">
+                <div class="formulario-header">
+                    <div class="icono-formulario">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <h2>Formulario de Postulación</h2>
+                    <p>Completa tu información para formar parte de nuestro equipo de trabajo</p>
+                </div>
+                
+                <div class="formulario-content">
+                    <div class="formulario-info">
+                        <h3>¿Por qué trabajar con nosotros?</h3>
+                        <ul class="beneficios-lista">
+                            <li><i class="fas fa-check-circle"></i> Ambiente de trabajo colaborativo</li>
+                            <li><i class="fas fa-check-circle"></i> Proyectos innovadores y sostenibles</li>
+                            <li><i class="fas fa-check-circle"></i> Oportunidades de crecimiento profesional</li>
+                            <li><i class="fas fa-check-circle"></i> Tecnología de vanguardia</li>
+                            <li><i class="fas fa-check-circle"></i> Compromiso con el medio ambiente</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="formulario-accion">
+                        <button class="btn-postularse" onclick="abrirFormularioExterno()">
+                            <i class="fas fa-external-link-alt"></i>
+                            Completar Formulario de Postulación
+                        </button>
+                        <p class="formulario-nota">Al hacer clic serás redirigido a nuestro formulario de postulación seguro</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Política de Tratamiento de Datos -->
+    <section class="seccion-politica-datos">
+        <div class="contenedor-principal">
+            <div class="politica-container animar-entrada">
+                <div class="politica-header">
+                    <div class="icono-politica">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h2>Política de Tratamiento de Datos Personales</h2>
+                    <p class="politica-empresa">Eco Smart Construcciones S.A.S.</p>
+                    <p class="politica-version">Versión: 1.0 | Vigencia desde: 22 de julio de 2025</p>
+                </div>
+
+                <div class="politica-content">
+                    <div class="politica-seccion">
+                        <h3><i class="fas fa-bullseye"></i> 1. Objeto</h3>
+                        <p>La presente política tiene como finalidad establecer los lineamientos para la recolección, almacenamiento, uso, circulación, supresión y demás actividades asociadas al tratamiento de datos personales en cumplimiento de lo dispuesto en la Ley Estatutaria 1581 de 2012, el Decreto 1377 de 2013, el Decreto Único Reglamentario 1074 de 2015, la Ley 1266 de 2008, la Ley 2157 de 2021, y las Circulares Externas 004 de 2019, 005 de 2020, 002 y 003 de 2024, emitidas por la Superintendencia de Industria y Comercio (SIC).</p>
+                    </div>
+
+                    <div class="politica-seccion">
+                        <h3><i class="fas fa-building"></i> 2. Responsable del Tratamiento</h3>
+                        <div class="responsable-info">
+                            <p><strong>Nombre o razón social:</strong> Eco Smart Construcciones S.A.S.</p>
+                            <p><strong>NIT:</strong> 901925788-3</p>
+                            <p><strong>Dirección:</strong> Cra 14 Nro. 10-26</p>
+                            <p><strong>Correo electrónico:</strong> ecosmartconstrucciones@gmail.com</p>
+                            <p><strong>Teléfono:</strong> 3224657363</p>
+                        </div>
+                    </div>
+
+                    <div class="politica-seccion">
+                        <h3><i class="fas fa-gavel"></i> 3. Marco Normativo</h3>
+                        <p>Esta política se rige por:</p>
+                        <ul class="marco-normativo-lista">
+                            <li>Constitución Política de Colombia – Artículo 15</li>
+                            <li>Ley 1581 de 2012 – Régimen General de Protección de Datos</li>
+                            <li>Decreto 1377 de 2013</li>
+                            <li>Decreto Único Reglamentario 1074 de 2015</li>
+                            <li>Ley 1266 de 2008 – Habeas data financiero</li>
+                            <li>Ley 2157 de 2021 – Actualización en reporte negativo</li>
+                            <li>Circulares Externas 004 de 2019, 005 de 2020, 002 y 003 de 2024 – SIC</li>
+                        </ul>
+                    </div>
+
+                    <div class="politica-seccion">
+                        <h3><i class="fas fa-balance-scale"></i> 4. Principios Rectores del Tratamiento</h3>
+                        <p>En todas las etapas del tratamiento de datos personales, Eco Smart Construcciones S.A.S. garantiza el cumplimiento de los siguientes principios: Legalidad, Finalidad específica, Libertad, Veracidad y calidad, Transparencia, Acceso y circulación restringida, Seguridad de la información, Confidencialidad, Responsabilidad demostrada y Privacidad por diseño y por defecto.</p>
+                    </div>
+
+                    <div class="politica-seccion">
+                        <h3><i class="fas fa-target"></i> 5. Finalidades del Tratamiento</h3>
+                        <p>Los datos personales tratados por Eco Smart Construcciones S.A.S. serán utilizados con las siguientes finalidades:</p>
+                        <ul class="finalidades-lista">
+                            <li>5.1 Responder solicitudes, cotizaciones y consultas.</li>
+                            <li>5.2 Establecer relaciones comerciales, contractuales, laborales o civiles.</li>
+                            <li>5.3 Gestionar procesos administrativos, contables y tributarios.</li>
+                            <li>5.4 Ejecutar procesos de selección, contratación y bienestar laboral.</li>
+                            <li>5.5 Implementar el Sistema de Gestión de Seguridad y Salud en el Trabajo (SG-SST).</li>
+                            <li>5.6 Realizar análisis de satisfacción, mercadeo, fidelización y comunicaciones informativas.</li>
+                            <li>5.7 Cumplir obligaciones legales ante autoridades competentes.</li>
+                            <li>5.8 Registrar y gestionar bases de datos ante la SIC.</li>
+                        </ul>
+                    </div>
+
+                    <div class="politica-seccion">
+                        <h3><i class="fas fa-database"></i> 6. Categorías de Datos Tratados</h3>
+                        <ul class="categorias-lista">
+                            <li>6.1 Datos personales (nombre, cédula, dirección, correo, teléfono, etc.)</li>
+                            <li>6.2 Datos sensibles (salud, biometría, información étnica, etc.)</li>
+                            <li>6.3 Datos laborales y contractuales</li>
+                            <li>6.4 Datos de menores de edad, con autorización de sus representantes legales</li>
+                            <li>6.5 Datos públicos conforme al Artículo 5 de la Ley 1581 de 2012</li>
+                        </ul>
+                    </div>
+
+                    <div class="politica-seccion">
+                        <h3><i class="fas fa-user-check"></i> 7. Autorización del Titular</h3>
+                        <p>La recolección y tratamiento de datos personales por parte de Eco Smart Construcciones S.A.S. requerirá autorización previa, expresa, informada e inequívoca del titular. Esta podrá otorgarse por medios físicos, electrónicos o conductas concluyentes, salvo en casos expresamente exceptuados por la ley (ej. mandato legal o autoridad). No se condicionará ningún servicio a la entrega de datos sensibles o de menores, conforme al artículo 6 de la Ley 1581.</p>
+                    </div>
+
+                    <div class="politica-seccion">
+                        <h3><i class="fas fa-user-shield"></i> 8. Derechos del Titular</h3>
+                        <p>Los titulares de los datos personales tienen derecho a:</p>
+                        <ul class="derechos-lista">
+                            <li>Conocer, actualizar, rectificar y suprimir sus datos</li>
+                            <li>Solicitar prueba de la autorización otorgada</li>
+                            <li>Ser informados sobre el uso que se les ha dado a sus datos</li>
+                            <li>Presentar quejas ante la SIC por infracciones</li>
+                            <li>Revocar la autorización o solicitar la supresión de los datos</li>
+                            <li>Acceder gratuitamente a sus datos</li>
+                        </ul>
+                    </div>
+
+                    <div class="politica-seccion">
+                        <h3><i class="fas fa-clipboard-list"></i> 9. Procedimientos para Consultas y Reclamos</h3>
+                        <p>Las consultas y reclamos podrán presentarse por escrito o por correo electrónico a <strong>ecosmartconstrucciones@gmail.com</strong></p>
+                        <ul class="procedimientos-lista">
+                            <li><strong>Consultas:</strong> se resolverán en un término máximo de 10 días hábiles.</li>
+                            <li><strong>Reclamos:</strong> se resolverán en un término de 15 días hábiles, una vez completo el reclamo.</li>
+                        </ul>
+                        <p>En ambos casos, el titular deberá identificarse y proporcionar la información mínima necesaria.</p>
+                    </div>
+
+                    <div class="politica-seccion">
+                        <h3><i class="fas fa-lock"></i> 10. Medidas de Seguridad</h3>
+                        <p>Eco Smart Construcciones S.A.S. implementa medidas físicas, administrativas, tecnológicas y contractuales para garantizar la integridad, disponibilidad y confidencialidad de los datos personales, incluyendo: control de accesos y perfiles, encriptación y almacenamiento seguro, políticas de seguridad informática, acuerdos de confidencialidad con empleados y terceros y evaluaciones de impacto de privacidad en casos sensibles o automatizados.</p>
+                    </div>
+
+                    <div class="politica-seccion">
+                        <h3><i class="fas fa-exchange-alt"></i> 11. Transferencia y Transmisión de Datos</h3>
+                        <p>Eco Smart Construcciones S.A.S. podrá transferir o transmitir datos a terceros, nacionales o internacionales, siempre que: Exista autorización expresa del titular, el tercero cumpla con estándares equivalentes de protección, se firme contrato de transmisión o se asegure el cumplimiento normativo.</p>
+                    </div>
+
+                    <div class="politica-seccion">
+                        <h3><i class="fas fa-archive"></i> 12. Registro Nacional de Bases de Datos</h3>
+                        <p>Eco Smart Construcciones S.A.S. ha inscrito sus bases de datos ante el Registro Nacional de Bases de Datos (RNBD), conforme a lo exigido por la SIC.</p>
+                    </div>
+
+                    <div class="politica-seccion">
+                        <h3><i class="fas fa-robot"></i> 13. Uso de Inteligencia Artificial o Herramientas Automatizadas</h3>
+                        <p>En caso de implementar sistemas con IA o algoritmos de toma de decisiones automatizada, se garantizará: Evaluación de impacto en la privacidad (EIPD), transparencia y aplicabilidad del sistema, derecho del titular a obtener intervención humana, proporcionalidad, idoneidad y minimización de riesgos.</p>
+                    </div>
+
+                    <div class="politica-seccion">
+                        <h3><i class="fas fa-calendar-alt"></i> 14. Vigencia de la Política</h3>
+                        <p>La presente política entra en vigor a partir del 22 de julio del 2025 y permanecerá vigente mientras subsista la finalidad del tratamiento. Las actualizaciones serán comunicadas a los titulares a través del sitio web y/o medios de contacto previamente autorizados.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal de confirmación -->
+    <div id="modalConfirmacion" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <i class="fas fa-external-link-alt"></i>
+                <h3>Redirección al Formulario</h3>
+            </div>
+            <div class="modal-body">
+                <p>Serás redirigido a nuestro formulario de postulación seguro en una nueva ventana.</p>
+                <p>Por favor, asegúrate de completar toda la información requerida.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-modal-cancelar" onclick="cerrarModal()">Cancelar</button>
+                <button class="btn-modal-continuar" onclick="confirmarRedireccion()">Continuar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../Elementos/Js/menu.js"></script>
+    <script src="../Elementos/Js/navegacion-activa.js"></script>
+    <script src="../Elementos/Js/Postulacion.js"></script>
+    <script src="../Elementos/Js/animaciones-scroll.js"></script>
+</body>
+
+</html>

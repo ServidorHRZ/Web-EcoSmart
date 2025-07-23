@@ -118,8 +118,19 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Funcionalidad para abrir el formulario de postulación
     window.abrirFormularioPostulacion = function() {
-        // Abrir en una nueva pestaña
-        window.open('https://servidorhrz.github.io/Formulario-EcoSmart/', '_blank');
+        // Verificar si estamos en la página de postulación
+        if (window.location.pathname.includes('Postulacion.html')) {
+            // Si estamos en la página de postulación, usar el modal
+            if (typeof abrirFormularioExterno === 'function') {
+                abrirFormularioExterno();
+            } else {
+                // Fallback si la función no está disponible
+                window.open('https://servidorhrz.github.io/Formulario-EcoSmart/', '_blank');
+            }
+        } else {
+            // Si estamos en otra página, redirigir a la página de postulación
+            window.location.href = 'Postulacion.html';
+        }
     };
     
     // Animación de entrada inicial para elementos visibles

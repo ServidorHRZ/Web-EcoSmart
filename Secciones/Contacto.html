@@ -14,18 +14,21 @@
     <nav class="menu-desktop">
         <div class="nav-container">
             <div class="logo-nav">
-                <img src="../Img/Logo_Color_Fondo_Blanco_400x150.png" alt="Eco Smart Construcciones"
-                    class="logo-imagen">
+                <a href="Home.html">
+                    <img src="../Img/Logo_Color_Fondo_Blanco_400x150.png" alt="Eco Smart Construcciones"
+                        class="logo-imagen">
+                </a>
             </div>
             <ul class="menu-horizontal">
-                <li><a href="Home.html">Inicio</a></li>
                 <li><a href="Nosotros.html">Nosotros</a></li>
                 <li><a href="Servicios.html">Servicios</a></li>
-                <li><a href="Productos.html">Productos</a></li>
-                <li><a href="Impacto.html">Impacto Ambiental</a></li>
+                <li><a href="Postulacion.html">Postúlate</a></li>
                 <li><a href="Contacto.html">Contacto</a></li>
             </ul>
-            <button class="btn-postulate-desktop" onclick="abrirFormularioPostulacion()">Postúlate</button>
+            <a class="btn-whatsapp-desktop" href=
+            "https://wa.me/573224657363" target="_blank">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
         </div>
     </nav>
 
@@ -33,8 +36,10 @@
     <nav class="menu-movil">
         <div class="nav-movil-container">
             <div class="logo-movil">
-                <img src="../Img/Logo_Color_Fondo_Blanco_400x150.png" alt="Eco Smart Construcciones"
-                    class="logo-imagen-movil">
+                <a href="Home.html">
+                    <img src="../Img/Logo_Color_Fondo_Blanco_400x150.png" alt="Eco Smart Construcciones"
+                        class="logo-imagen-movil">
+                </a>
             </div>
             <div class="menu-toggle" id="menuToggle">
                 <span></span>
@@ -48,18 +53,21 @@
     <nav class="menu-lateral" id="menuLateral">
         <div class="menu-contenido">
             <div class="logo-menu">
-                <img src="../Img/Logo_Color_Fondo_Negro_500x500.png" alt="Eco Smart Construcciones"
-                    class="logo-imagen-lateral">
+                <a href="Home.html">
+                    <img src="../Img/Logo_Color_Fondo_Negro_500x500.png" alt="Eco Smart Construcciones"
+                        class="logo-imagen-lateral">
+                </a>
             </div>
             <ul class="menu-lista">
                 <li><a href="Home.html" class="menu-link">Inicio</a></li>
                 <li><a href="Nosotros.html" class="menu-link">Nosotros</a></li>
                 <li><a href="Servicios.html" class="menu-link">Servicios</a></li>
-                <li><a href="Productos.html" class="menu-link">Productos</a></li>
-                <li><a href="Impacto.html" class="menu-link">Impacto Ambiental</a></li>
+                <li><a href="Postulacion.html" class="menu-link">Postúlate</a></li>
                 <li><a href="Contacto.html" class="menu-link">Contacto</a></li>
             </ul>
-            <button class="btn-postulate" onclick="abrirFormularioPostulacion()">Postúlate</button>
+            <a class="btn-whatsapp-movil" href="https://wa.me/573224657363" target="_blank">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
         </div>
     </nav>
 
@@ -84,7 +92,7 @@
                         </div>
                         <div class="contacto-texto">
                             <h4>Ubicación</h4>
-                            <p>Colombia<br>Zona Empresarial</p>
+                            <p>Yumbo, Colombia<br>Valle del Cauca</p>
                         </div>
                     </div>
                     <div class="contacto-item">
@@ -136,12 +144,11 @@
                             <label for="servicio">Servicio de interés</label>
                             <select id="servicio" name="servicio" required>
                                 <option value="">Selecciona un servicio</option>
-                                <option value="obras-civiles">Obras Civiles</option>
-                                <option value="diseno-planos">Diseño y Planos</option>
-                                <option value="construccion-inteligente">Construcción Inteligente</option>
-                                <option value="automatizacion">Automatización</option>
-                                <option value="consultoria">Consultoría</option>
-                                <option value="impacto-ambiental">Impacto Ambiental</option>
+                                <option value="construccion-obra-civil">Construcción y Obra Civil</option>
+                                <option value="reformas-mantenimiento">Reformas, Adecuaciones y Mantenimiento Técnico</option>
+                                <option value="domotica">Tecnología Aplicada: Domótica</option>
+                                <option value="inmotica">Tecnología Aplicada: Inmótica</option>
+                                <option value="consultoria">Consultoría General</option>
                             </select>
                         </div>
                         <div class="form-grupo">

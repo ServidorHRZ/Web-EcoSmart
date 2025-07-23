@@ -144,7 +144,7 @@
 
 /* ===== SECCIÓN NOSOTROS ===== */
 .seccion-nosotros {
-    background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+    background: #000000;
     padding: 100px 20px;
     color: #ffffff;
     position: relative;
@@ -733,7 +733,7 @@
 
 /* ===== SECCIÓN SERVICIOS ===== */
 .seccion-servicios {
-    background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+    background: #000000;
     color: #ffffff;
     position: relative;
     overflow: hidden;
@@ -1069,7 +1069,7 @@
 
 /* ===== SECCIÓN IMPACTO AMBIENTAL ===== */
 .seccion-impacto {
-    background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+    background: #000000;
     padding: 100px 20px;
     color: #ffffff;
     position: relative;
@@ -1291,7 +1291,7 @@
 
 /* ===== SECCIÓN CONTACTO ===== */
 .seccion-contacto {
-    background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+    background: #000000;
     padding: 100px 20px;
     color: #ffffff;
     position: relative;
@@ -1305,8 +1305,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 80% 20%, rgba(255, 215, 0, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.05) 0%, transparent 50%);
+    background: transparent;
     pointer-events: none;
 }
 
@@ -2727,12 +2726,11 @@
     min-width: 350px;
 }
 .carrusel-hero-titulo {
-    font-size: 3.2em;
-    font-weight: 800;
-    line-height: 1.1;
-    margin-bottom: 30px;
-    color: #fff;
-    text-shadow: 0 2px 16px rgba(0,0,0,0.25);
+    font-size: 2.3em;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 25px;
+    color: #FFD700;
 }
 .carrusel-hero-subtitulo {
     font-size: 1.35em;
@@ -2803,8 +2801,9 @@
         gap: 18px;
     }
     .carrusel-hero-titulo {
-        font-size: 2em;
+        font-size: 1.8em;
         margin-bottom: 18px;
+        line-height: 1.1;
     }
     .carrusel-hero-subtitulo {
         font-size: 1em;
@@ -2815,20 +2814,108 @@
         padding: 12px 22px;
     }
     .carrusel-hero-video video {
-        height: 180px;
+        height: 280px;
         border-radius: 12px;
     }
 }
 /* --- FIN HERO FLEX HOME --- */
 
-@media (max-width: 768px) {
-    .carrusel-hero-texto {
-        display: none !important;
+/* Ajuste adicional para teléfonos muy pequeños */
+@media (max-width: 480px) {
+    .carrusel-hero-video video {
+        height: 250px;
+        border-radius: 10px;
     }
+    
+    .carrusel-hero-texto {
+        width: 95%;
+        padding: 0;
+        background: none;
+        border-radius: 0;
+    }
+    
+    .carrusel-hero-titulo {
+        font-size: 1.3em;
+        line-height: 1.2;
+    }
+}
+
+@media (max-width: 320px) {
+     .carrusel-hero-texto {
+         padding: 0;
+         background: none;
+         border-radius: 0;
+     }
+     
+     .carrusel-hero-titulo {
+         font-size: 1.1em;
+         line-height: 1.1;
+     }
+ }
+
+@media (max-width: 768px) {
     .carrusel-hero-video {
         width: 100%;
         max-width: 100%;
         min-width: 0;
         justify-content: center;
+        position: relative;
+    }
+    
+    .carrusel-hero-texto {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 10;
+        text-align: center;
+        width: 90%;
+        padding: 0;
+        background: none;
+        border-radius: 0;
+        backdrop-filter: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .carrusel-hero-titulo {
+        font-size: 1.5em;
+        margin-bottom: 0;
+        color: #FFD700;
+        text-shadow: 
+            0 0 10px rgba(255, 215, 0, 0.8),
+            0 0 20px rgba(255, 215, 0, 0.6),
+            0 0 30px rgba(255, 215, 0, 0.4),
+            2px 2px 8px rgba(0, 0, 0, 0.9);
+        font-weight: 700;
+        line-height: 1.2;
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.7));
+        animation: titleGlow 3s ease-in-out infinite alternate;
+        text-align: center;
+        width: 100%;
+    }
+    
+    @keyframes titleGlow {
+        0% {
+            text-shadow: 
+                0 0 10px rgba(255, 215, 0, 0.8),
+                0 0 20px rgba(255, 215, 0, 0.6),
+                0 0 30px rgba(255, 215, 0, 0.4),
+                2px 2px 8px rgba(0, 0, 0, 0.9);
+        }
+        100% {
+            text-shadow: 
+                0 0 15px rgba(255, 215, 0, 1),
+                0 0 25px rgba(255, 215, 0, 0.8),
+                0 0 35px rgba(255, 215, 0, 0.6),
+                2px 2px 8px rgba(0, 0, 0, 0.9);
+        }
+    }
+    
+    .carrusel-hero-subtitulo,
+    .carrusel-hero-boton {
+        display: none;
     }
 }
