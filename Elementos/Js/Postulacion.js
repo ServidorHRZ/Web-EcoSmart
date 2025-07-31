@@ -171,13 +171,9 @@ function optimizarMovil() {
 
 // Función para abrir el formulario externo
 function abrirFormularioExterno() {
-    const modal = document.getElementById('modalConfirmacion');
-    modal.style.display = 'block';
-    
-    // Agregar clase para animación
-    setTimeout(() => {
-        modal.classList.add('show');
-    }, 10);
+    // Redirección directa al formulario de Google Forms
+    const urlFormulario = 'https://docs.google.com/forms/d/e/1FAIpQLSesH5LZXcGP1JWLoIAej_6i_ia-rw0l3QhEn-V3QcOgfrdTWQ/viewform?usp=header';
+    window.open(urlFormulario, '_blank', 'noopener,noreferrer');
 }
 
 // Función para cerrar el modal

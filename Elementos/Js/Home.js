@@ -53,15 +53,16 @@ function mostrarProgresoScroll() {
     
     window.addEventListener('scroll', () => {
         const scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
-        const scrollActual = window.pageYOffset;
+        const scrollActual = window.scrollY || window.pageYOffset;
         const porcentaje = (scrollActual / scrollTotal) * 100;
         barraProgreso.style.width = porcentaje + '%';
     });
 }
 
-// Función para lazy loading de imágenes
+// Función para lazy loading de imágenes (EXCLUYE las del carrusel)
 function lazyLoadImagenes() {
-    const imagenes = document.querySelectorAll('img[src]');
+    // Excluir imágenes del carrusel para evitar conflictos
+    const imagenes = document.querySelectorAll('img[src]:not(.slide-imagen):not(.slide-video)');
     
     const configuracionObservador = {
         rootMargin: '50px 0px',
@@ -110,20 +111,23 @@ function optimizarMovil() {
 
 // Inicializar todas las funcionalidades cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', function() {
-    // Inicializar funcionalidades
-    suavizarScroll();
-    efectosHoverAvanzados();
-    mostrarProgresoScroll();
-    lazyLoadImagenes();
-    optimizarMovil();
-    
-    console.log('✅ Funcionalidades adicionales de Home cargadas');
+    // Esperar un poco para que el carrusel se inicialice primero
+    setTimeout(() => {
+        // Inicializar funcionalidades
+        suavizarScroll();
+        efectosHoverAvanzados();
+        mostrarProgresoScroll();
+        lazyLoadImagenes();
+        optimizarMovil();
+        
+        console.log('✅ Funcionalidades adicionales de Home cargadas');
+    }, 100); // Delay de 100ms para evitar conflictos con el carrusel
 });
 
 // Función global para debugging
 window.debugHome = function() {
     console.log('🔧 Debug Home activado');
     console.log('Elementos animados:', document.querySelectorAll('.visible').length);
-    console.log('Scroll actual:', window.pageYOffset);
+    console.log('Scroll actual:', window.scrollY || window.pageYOffset);
     console.log('Es móvil:', document.body.classList.contains('es-movil'));
 };

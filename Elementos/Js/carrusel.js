@@ -1,25 +1,24 @@
-// ===== CARRUSEL ÉPICO ECO SMART =====
-class CarruselEpicoEcoSmart {
+// ===== CARRUSEL SIMPLE Y ESTABLE =====
+class CarruselSimple {
     constructor() {
         this.slideActual = 0;
         this.slides = [];
         this.indicadores = [];
         this.totalSlides = 0;
         this.autoPlayInterval = null;
-        this.videoInterval = null;
         this.isPlaying = true;
-        this.videoDuration = 60000; // 60 segundos para el video
-        this.imageDuration = 300000; // 5 minutos (300 segundos) para cada imagen
-        this.isMobile = this.detectarMovil();
-        this.videoControlledByEvent = false; // Para evitar conflictos entre evento ended y timeout
-        
+        this.slideDuration = 9000; // 9 segundos EXACTOS para todos los slides
+        this.isChanging = false; // Prevenir cambios múltiples
+        this.initialized = false; // Flag de inicialización
+
+        console.log('🎬 Creando carrusel simple...');
         this.inicializar();
     }
 
     // Detectar si es dispositivo móvil
     detectarMovil() {
-        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
-               window.innerWidth <= 768;
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+            window.innerWidth <= 768;
     }
 
     // Inicializar el carrusel
@@ -27,7 +26,7 @@ class CarruselEpicoEcoSmart {
         this.slides = document.querySelectorAll('.slide');
         this.indicadores = document.querySelectorAll('.indicador');
         this.totalSlides = this.slides.length;
-        
+
         if (this.totalSlides === 0) {
             console.error('No se encontraron slides en el carrusel');
             return;
@@ -49,28 +48,20 @@ class CarruselEpicoEcoSmart {
                 video.preload = 'auto'; // Precargar el video
                 video.playsInline = true; // Importante para iOS
                 video.setAttribute('playsinline', ''); // Atributo adicional para iOS
-                
-                // Evento cuando el video termina
-                video.addEventListener('ended', () => {
-                    console.log('Video terminado, pasando al siguiente slide');
-                    this.videoControlledByEvent = true;
-                    this.siguienteSlide();
-                    // Resetear el flag después de un breve delay
-                    setTimeout(() => {
-                        this.videoControlledByEvent = false;
-                    }, 100);
-                });
-                
+
+                // REMOVEMOS el evento 'ended' para que no interfiera con el timing uniforme
+                // El video se controlará solo por el timeout de 9 segundos
+
                 // Evento cuando el video está listo para reproducir
                 video.addEventListener('canplaythrough', () => {
                     console.log('Video listo para reproducir');
                 });
-                
+
                 // Evento cuando el video puede empezar a reproducir
                 video.addEventListener('canplay', () => {
                     console.log('Video puede empezar a reproducir');
                 });
-                
+
                 // Evento de error
                 video.addEventListener('error', (e) => {
                     console.error('Error en el video:', e);
@@ -78,7 +69,7 @@ class CarruselEpicoEcoSmart {
 
                 // Evento cuando se carga la metadata del video
                 video.addEventListener('loadedmetadata', () => {
-                    console.log('Metadata del video cargada');
+                    console.log('Metadata del video cargada, duración:', video.duration);
                 });
             }
         }
@@ -86,9 +77,19 @@ class CarruselEpicoEcoSmart {
 
     // Mostrar slide específico
     mostrarSlide(indice) {
+        // Evitar cambios múltiples simultáneos
+        if (this.isChanging) {
+            console.log('🚫 Cambio bloqueado - ya hay uno en progreso');
+            return;
+        }
+
+        this.isChanging = true;
+
         // Validar índice
         if (indice >= this.totalSlides) indice = 0;
         if (indice < 0) indice = this.totalSlides - 1;
+
+        console.log(`🔄 Cambiando a slide ${indice + 1}/${this.totalSlides}`);
 
         // Remover clase activo
         this.slides.forEach(slide => slide.classList.remove('activo'));
@@ -100,7 +101,7 @@ class CarruselEpicoEcoSmart {
         // Activar elementos correspondientes
         if (this.slides[this.slideActual]) {
             this.slides[this.slideActual].classList.add('activo');
-            
+
             // Animar el contenido del slide
             const contenido = this.slides[this.slideActual].querySelector('.slide-contenido');
             if (contenido) {
@@ -110,16 +111,21 @@ class CarruselEpicoEcoSmart {
                 }, 10);
             }
         }
-        
+
         if (this.indicadores[this.slideActual]) {
             this.indicadores[this.slideActual].classList.add('activo');
         }
 
         // Manejar video si es el slide actual
         this.manejarVideo();
-        
+
         // Reiniciar auto-play con el tiempo correcto
         this.reiniciarAutoPlay();
+
+        // Liberar el flag después de un breve delay
+        setTimeout(() => {
+            this.isChanging = false;
+        }, 500);
     }
 
     // Manejar la reproducción de videos
@@ -141,11 +147,11 @@ class CarruselEpicoEcoSmart {
                     video.muted = true;
                     video.playsInline = true;
                     video.setAttribute('playsinline', '');
-                    
+
                     console.log('Intentando reproducir video...');
-                    
+
                     // Para móviles, intentar cargar el video primero
-                    if (this.isMobile) {
+                    if (this.detectarMovil()) {
                         await new Promise((resolve) => {
                             if (video.readyState >= 3) { // HAVE_FUTURE_DATA
                                 resolve();
@@ -155,16 +161,16 @@ class CarruselEpicoEcoSmart {
                             }
                         });
                     }
-                    
+
                     const playPromise = video.play();
-                    
+
                     if (playPromise !== undefined) {
                         await playPromise;
                         console.log('Video reproduciéndose correctamente');
                     }
                 } catch (error) {
                     console.warn('Error al reproducir video:', error);
-                    
+
                     // Intentar reproducir de nuevo después de un breve delay
                     setTimeout(async () => {
                         try {
@@ -173,9 +179,9 @@ class CarruselEpicoEcoSmart {
                             console.log('Video reproduciéndose en segundo intento');
                         } catch (secondError) {
                             console.error('Error en segundo intento de reproducir video:', secondError);
-                            
+
                             // Si es móvil y falla, mostrar un mensaje o poster
-                            if (this.isMobile) {
+                            if (this.detectarMovil()) {
                                 console.log('Mostrando poster del video en móvil');
                                 video.load(); // Cargar el poster
                             }
@@ -196,153 +202,56 @@ class CarruselEpicoEcoSmart {
         this.mostrarSlide(this.slideActual - 1);
     }
 
-    // Configurar todos los eventos
+    // Configurar eventos MÍNIMOS (solo lo esencial)
     configurarEventos() {
-        // Botones de navegación
+        console.log('🎯 Configurando eventos mínimos del carrusel');
+
+        // SOLO botones de navegación (sin otros eventos que interfieran)
         const btnPrev = document.getElementById('prevBtn');
         const btnNext = document.getElementById('nextBtn');
 
         if (btnNext) {
             btnNext.addEventListener('click', () => {
+                console.log('👆 Click en botón siguiente');
                 this.siguienteSlide();
             });
         }
-        
+
         if (btnPrev) {
             btnPrev.addEventListener('click', () => {
+                console.log('👆 Click en botón anterior');
                 this.anteriorSlide();
             });
         }
 
-        // Indicadores
+        // SOLO indicadores (sin otros eventos)
         this.indicadores.forEach((indicador, indice) => {
             indicador.addEventListener('click', () => {
+                console.log(`👆 Click en indicador ${indice + 1}`);
                 this.mostrarSlide(indice);
             });
         });
 
-        // Control del auto-play con mouse (solo en desktop)
-        if (!this.isMobile) {
-            const carruselContenedor = document.querySelector('.carrusel-contenedor');
-            if (carruselContenedor) {
-                carruselContenedor.addEventListener('mouseenter', () => {
-                    this.pausarAutoPlay();
-                });
+        // ELIMINAMOS TODOS LOS OTROS EVENTOS QUE CAUSAN PROBLEMAS:
+        // - NO mouse hover (causa pausas/reanudaciones)
+        // - NO teclado (causa cambios inesperados)
+        // - NO táctil (causa swipes accidentales)
+        // - NO visibilitychange (causa pausas/reanudaciones)
+        // - NO interacción móvil (simplificamos)
 
-                carruselContenedor.addEventListener('mouseleave', () => {
-                    this.iniciarAutoPlay();
-                });
-            }
-        }
-
-        // Control con teclado
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft') {
-                this.anteriorSlide();
-            } else if (e.key === 'ArrowRight') {
-                this.siguienteSlide();
-            } else if (e.key === ' ') {
-                e.preventDefault();
-                this.toggleAutoPlay();
-            }
-        });
-
-        // Soporte táctil para móviles
-        this.configurarEventosTactiles();
-
-        // Pausar cuando la pestaña no está visible
-        document.addEventListener('visibilitychange', () => {
-            if (document.hidden) {
-                this.pausarAutoPlay();
-            } else {
-                this.iniciarAutoPlay();
-            }
-        });
-
-        // Habilitar reproducción de video en móviles después de interacción del usuario
-        if (this.isMobile) {
-            this.configurarInteraccionMovil();
-        }
+        console.log('✅ Eventos mínimos configurados - Solo autoplay + botones + indicadores');
     }
 
-    // Configurar interacción para móviles
-    configurarInteraccionMovil() {
-        let interaccionRealizada = false;
-        
-        const habilitarVideo = () => {
-            if (!interaccionRealizada) {
-                interaccionRealizada = true;
-                console.log('Interacción del usuario detectada, habilitando videos');
-                
-                // Intentar reproducir el video actual si es un video
-                const slideActivo = this.slides[this.slideActual];
-                if (slideActivo && slideActivo.dataset.tipo === 'video') {
-                    this.manejarVideo();
-                }
-            }
-        };
-
-        // Escuchar varios tipos de interacción
-        document.addEventListener('touchstart', habilitarVideo, { once: true });
-        document.addEventListener('click', habilitarVideo, { once: true });
-        document.addEventListener('keydown', habilitarVideo, { once: true });
-    }
-
-    // Configurar eventos táctiles
-    configurarEventosTactiles() {
-        let startX = 0;
-        let endX = 0;
-        let startY = 0;
-        let endY = 0;
-
-        const carruselContenedor = document.querySelector('.carrusel-contenedor');
-        if (!carruselContenedor) return;
-
-        carruselContenedor.addEventListener('touchstart', (e) => {
-            startX = e.touches[0].clientX;
-            startY = e.touches[0].clientY;
-        }, { passive: true });
-
-        carruselContenedor.addEventListener('touchend', (e) => {
-            endX = e.changedTouches[0].clientX;
-            endY = e.changedTouches[0].clientY;
-            this.manejarSwipe(startX, endX, startY, endY);
-        }, { passive: true });
-    }
-
-    // Manejar gestos de deslizamiento
-    manejarSwipe(startX, endX, startY, endY) {
-        const diffX = startX - endX;
-        const diffY = startY - endY;
-        const minSwipeDistance = 50;
-
-        // Solo procesar si el movimiento horizontal es mayor que el vertical
-        if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > minSwipeDistance) {
-            if (diffX > 0) {
-                this.siguienteSlide(); // Swipe izquierda - siguiente
-            } else {
-                this.anteriorSlide(); // Swipe derecha - anterior
-            }
-        }
-    }
+    // FUNCIONES ELIMINADAS PARA EVITAR CONFLICTOS:
+    // - configurarInteraccionMovil() 
+    // - configurarEventosTactiles()
+    // - manejarSwipe()
+    // Estas funciones causaban cambios inesperados en el carrusel
 
     // Obtener duración del slide actual
     obtenerDuracionSlide() {
-        const slideActivo = this.slides[this.slideActual];
-        if (slideActivo) {
-            const esVideo = slideActivo.dataset.tipo === 'video';
-            
-            if (esVideo) {
-                // Para videos, no usar timeout si está controlado por evento
-                if (this.videoControlledByEvent) {
-                    return null; // No establecer timeout, el evento 'ended' se encarga
-                }
-                return this.videoDuration; // 60 segundos
-            } else {
-                return this.imageDuration; // 5 minutos para imágenes
-            }
-        }
-        return this.imageDuration; // Por defecto
+        // Ahora TODOS los slides (video e imágenes) duran exactamente 9 segundos
+        return this.slideDuration;
     }
 
     // Reiniciar auto-play con la duración correcta
@@ -356,14 +265,15 @@ class CarruselEpicoEcoSmart {
     // Iniciar auto-play
     iniciarAutoPlay() {
         this.pausarAutoPlay(); // Limpiar intervalo anterior
-        
+
         if (this.isPlaying) {
             const duracion = this.obtenerDuracionSlide();
-            
+
             // Solo establecer timeout si hay duración (no es null)
             if (duracion !== null) {
-                console.log(`Iniciando autoplay con duración: ${duracion}ms`);
+                console.log(`🎬 Iniciando autoplay - Slide ${this.slideActual + 1}/${this.totalSlides} - Duración: ${duracion}ms`);
                 this.autoPlayInterval = setTimeout(() => {
+                    console.log(`⏰ Timeout completado - Cambiando de slide ${this.slideActual + 1} al siguiente`);
                     this.siguienteSlide();
                 }, duracion);
             } else {
@@ -398,7 +308,7 @@ class CarruselEpicoEcoSmart {
     // Destruir carrusel (limpiar eventos y intervalos)
     destruir() {
         this.pausarAutoPlay();
-        
+
         // Pausar todos los videos
         this.slides.forEach(slide => {
             const video = slide.querySelector('.slide-video');
@@ -420,10 +330,10 @@ class CarruselEpicoEcoSmart {
 }
 
 // Función para inicializar el carrusel
-function inicializarCarruselEpico() {
+function inicializarCarruselSimple() {
     const carruselContenedor = document.querySelector('.carrusel-principal');
     if (carruselContenedor) {
-        return new CarruselEpicoEcoSmart();
+        return new CarruselSimple();
     } else {
         console.error('Contenedor del carrusel no encontrado');
         return null;
@@ -433,10 +343,49 @@ function inicializarCarruselEpico() {
 // Variable global para acceder al carrusel
 let carruselEpico = null;
 
-// Inicializar carrusel cuando el DOM esté listo
-document.addEventListener('DOMContentLoaded', function() {
-    carruselEpico = inicializarCarruselEpico();
-});
+// Función de inicialización completamente aislada
+function inicializarCarruselSeguro() {
+    console.log('🚀 Inicializando carrusel de forma segura...');
+
+    // Verificar que el DOM esté listo
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', inicializarCarruselSeguro);
+        return;
+    }
+
+    // Verificar que el contenedor exista
+    const contenedor = document.querySelector('.carrusel-principal');
+    if (!contenedor) {
+        console.log('⏳ Contenedor no encontrado, reintentando en 100ms...');
+        setTimeout(inicializarCarruselSeguro, 100);
+        return;
+    }
+
+    // Verificar que no haya ya un carrusel inicializado
+    if (carruselEpico) {
+        console.log('⚠️ Carrusel ya inicializado, destruyendo el anterior...');
+        carruselEpico.destruir();
+    }
+
+    // Inicializar el nuevo carrusel
+    console.log('🎬 Creando nueva instancia del carrusel...');
+    carruselEpico = inicializarCarruselSimple();
+
+    if (carruselEpico) {
+        console.log('✅ Carrusel inicializado correctamente');
+
+        // Verificar que esté funcionando después de 1 segundo
+        setTimeout(() => {
+            const estado = carruselEpico.obtenerEstado();
+            console.log('📊 Estado del carrusel:', estado);
+        }, 1000);
+    } else {
+        console.error('❌ Error al inicializar carrusel');
+    }
+}
+
+// Inicializar de forma segura
+inicializarCarruselSeguro();
 
 // Función para controlar el carrusel desde el exterior
 window.CarruselControl = {
@@ -451,5 +400,5 @@ window.CarruselControl = {
 
 // Exportar para uso en módulos
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = CarruselEpicoEcoSmart;
+    module.exports = CarruselSimple;
 }

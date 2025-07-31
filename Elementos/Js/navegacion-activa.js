@@ -55,6 +55,11 @@ document.addEventListener('DOMContentLoaded', function() {
             return href === 'Impacto.html' || href === '#impacto';
         }
         
+        // Si estamos en Postulacion.html
+        if (nombrePagina === 'Postulacion.html') {
+            return href === 'Postulacion.html' || href === '#postulacion';
+        }
+        
         return false;
     }
     
