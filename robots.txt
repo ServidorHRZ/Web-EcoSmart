@@ -1,9 +1,10 @@
 User-agent: *
 Allow: /
 
-# Permitir acceso a imágenes importantes
+# Permitir acceso a recursos importantes
 Allow: /Img/
 Allow: /Elementos/
+Allow: /Secciones/
 
 # Sitemap
 Sitemap: http://ecosmartconstrucciones.com/sitemap.xml
@@ -26,7 +27,14 @@ Allow: /
 User-agent: WhatsApp
 Allow: /
 
-# Bloquear archivos innecesarios
+# Bloquear archivos innecesarios para SEO
+Disallow: /.git/
+Disallow: /.github/
+Disallow: /.vscode/
+Disallow: /.vercel/
+Disallow: /README.md
 Disallow: /*.css$
 Disallow: /*.js$
-Disallow: /README.md 
+
+# Información adicional
+# Host: ecosmartconstrucciones.com 
